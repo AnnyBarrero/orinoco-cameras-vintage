@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco nos caméras vintage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
+     <!--lien pour le fichier bootstrap-->
+       
+    <link rel="stylesheet" href="css/bootstrap.min.css">   
+    <link rel="stylesheet" href="sass/style.css">
+</head>
+<body>
+    <header>
+        <a class="backindex" href="index.html">
+            <i class="fas fa-shopping-cart"></i>
+            <h1>Orinoco</h1>
+        </a>
+        <a class="monpanier" href="panier.html">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Mon panier</p>
+        </a> 
+    </header>    
+    <div class="products-container">
+        <h2>Panier</h2>
+            <div class="products-header">
+                <h5 class="products-title">Produit</h5>
+                <h5 class="products-option">Option</h5>
+                <h5 class="products-price">Prix</h5>
+                <h5 class="products-quantity">Quantité</h5>
+                <h5 class="products-total">Total</h5>
+            </div>
+            <div class="products"></div>
+            <div class="no-products"></div>
+            <div class="total-basket">
+                <h5>Total commande</h5>
+                <h6 id="total-products"></h6>
+            </div>
+            
+            <button id="btnorder">Passer la commande</button>
+    </div>
+        <section id="formulaire">
+            <form id="myform">
+                <h3>Informations</h3>
+                <div class="input_field">
+                    <input type="text" placeholder="prénom*" id="firstname">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="nom*" id="lastname">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="adresse*" id="address">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="ville*" id="city">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="email*" id="email">
+                </div>
+                <div id="btnsend">
+                    <input type="submit">
+                </div>
+                <div id="error_message"></div>
+            </form>
+        </section> 
+        <footer>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+						<ul class="list-inline text-center">
+							<li class="list-inline-item"><a href="#">Notre histoire</a></li>
+							<li class="list-inline-item">&middot;</li>
+							<li class="list-inline-item"><a href="#">Vie privée</a></li>
+							<li class="list-inline-item">&middot;</li>
+							<li class="list-inline-item"><a href="#">Conditions d'utilisations</a></li>
+						</ul>
+						<p class="list-inline text-center">© 2020 Orinoco</p>
+					</div>
+				</div>
+			</div>
+        </footer>
+        <script src="js/panier.js"asynch></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	
+</body>
+</html>
