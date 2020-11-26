@@ -162,13 +162,14 @@ header .backindex i {
 }
 
 header .backindex h1 {
-  font-size: 3em;
+  font-size: 4.5em;
   font-family: 'Playfair Display', serif;
   text-align: center;
   color: black;
 }
 
 .title-camera {
+  margin: 120px;
   padding-bottom: 30px;
 }
 
@@ -176,7 +177,18 @@ header .backindex h1 {
   font-family: 'Playfair Display', serif;
   padding-bottom: 3px;
   padding-top: 3px;
-  font-size: 3em;
+  font-size: 6em;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+  background: #e68a09;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #3f0a63 0%, #914083 50%, #c91793 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .title-camera p {
@@ -187,7 +199,9 @@ header .backindex h1 {
 
 footer {
   color: black;
-  padding-top: 150px;
+  background-color: #f3e9f1;
+  padding-top: 70px;
+  padding-bottom: 50px;
   font-size: 1.7em;
   font-family: 'Playfair Display', serif;
 }
@@ -209,10 +223,21 @@ footer {
 .monpanier i {
   font-size: 3em;
   margin: auto;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+  background: #e68a09;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #e68a09 0%, #af6ca4 50%, #8f5bfe 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .monpanier p {
-  font-size: 1em;
+  font-size: 2em;
 }
 
 /**************************************************************************************/
@@ -240,6 +265,11 @@ h2 {
 }
 
 /*Produit*/
+.produit {
+  font-family: 'Playfair Display', serif;
+  height: 390px;
+}
+
 .produit a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -251,9 +281,8 @@ h2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 2%;
-  border: 1px solid #ddd;
-  height: 155px;
+  height: 350px;
+  border: 3px solid #f3e9f1;
   -webkit-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
 }
@@ -264,17 +293,14 @@ h2 {
 }
 
 .produit a .imageproduit {
-  margin-top: 10px;
-  margin-left: 10px;
   height: 135px;
-  width: 200px;
 }
 
 .produit a .libelle {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 20px;
   color: black;
 }
@@ -283,18 +309,20 @@ h2 {
   font-size: 2em;
   font-weight: bold;
   color: black;
+  padding-bottom: 15px;
 }
 
 .produit a .libelle p {
+  line-height: 2em;
   font-size: 1em;
   color: black;
 }
 
 .produit a .prix p {
   font-size: 2em;
-  color: red;
+  color: #c81180;
   font-weight: bold;
-  margin: 50px 20px auto 50px;
+  margin: 52px auto;
 }
 
 /**************************************************************************************/
@@ -315,7 +343,7 @@ h2 {
   width: 120px;
   height: 120px;
   border: 16px solid #e5e5e5;
-  border-top: 16px solid #65AD42;
+  border-top: 16px solid #49aa3f;
   border-radius: 50%;
   position: absolute;
   top: 20%;
@@ -433,7 +461,7 @@ h2 {
 .prixpanier #prix p {
   font-size: 3em;
   text-align: center;
-  color: red;
+  color: #c81180;
   font-weight: bold;
   margin: 30px auto;
 }
@@ -445,7 +473,7 @@ h2 {
   font-size: 1.1em;
   text-align: center;
   margin: 2% auto;
-  background: #65AD42;
+  background: #49aa3f;
   color: white;
   border: 1px solid #243e18;
   font-weight: bold;
@@ -457,7 +485,7 @@ h2 {
   font-size: 1.2em;
   display: inline-block;
   height: 54px;
-  background: #65AD42;
+  background: #49aa3f;
   color: white;
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -481,19 +509,18 @@ h2 {
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
 .products-container {
-  max-width: 80vw;
+  max-width: 90%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin: 0 auto;
-  margin-top: 3%;
-  font-family: 'Roboto','Calibri';
+  font-family: 'Playfair Display', serif;
   font-weight: bold;
 }
 
 .products-container h2 {
   font-size: 3em;
   font-weight: bold;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
 }
 
 .products-container .products-header {
@@ -557,7 +584,7 @@ h2 {
 
 .products-container .products .product .product-name ion-icon {
   font-size: 1.5em;
-  color: #65AD42;
+  color: #49aa3f;
   cursor: pointer;
 }
 
@@ -618,7 +645,7 @@ h2 {
       -ms-flex-positive: 2;
           flex-grow: 2;
   font-size: 1.5em;
-  color: #65AD42;
+  color: #49aa3f;
   cursor: pointer;
 }
 
@@ -658,7 +685,7 @@ h2 {
 
 .products-container .no-products p a {
   text-decoration: underline;
-  color: #65AD42;
+  color: #49aa3f;
 }
 
 .products-container .total-basket {
@@ -687,7 +714,7 @@ h2 {
   margin: 5% auto;
   font-size: 1.2em;
   height: 54px;
-  background: #65AD42;
+  background: #49aa3f;
   color: white;
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -711,7 +738,7 @@ h2 {
   display: none;
   margin: 2% auto;
   padding: 3%;
-  width: 80vw;
+  width: 80%;
   height: auto;
   background: #fff;
   border-radius: 5px;
@@ -795,7 +822,7 @@ h2 {
   }
   .products-container .products .product .product-quantity ion-icon, .products-container .products .product .product-name ion-icon {
     font-size: 1.5em;
-    color: #65AD42;
+    color: #49aa3f;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -818,7 +845,7 @@ h2 {
 #validation {
   width: 100vw;
   height: 100vh;
-  background: #65AD42;
+  background: #49aa3f;
   color: white;
 }
 
@@ -881,10 +908,10 @@ h2 {
 }
 
 #validation .btn-accueil:active {
-  -webkit-box-shadow: 1px 1px 1px 5px #65AD42 inset;
-          box-shadow: 1px 1px 1px 5px #65AD42 inset;
+  -webkit-box-shadow: 1px 1px 1px 5px #49aa3f inset;
+          box-shadow: 1px 1px 1px 5px #49aa3f inset;
   border: none;
-  background: #65AD42;
+  background: #49aa3f;
   color: #f3e9f1;
 }
 /*# sourceMappingURL=style.css.map */

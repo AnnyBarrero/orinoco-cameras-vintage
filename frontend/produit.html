@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco nos caméras vintage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">   
-    <link rel="stylesheet" href="sass/style.css">
-</head>
-<body>
-    <!--Header avec panier-->
-    <header>
-        <a class="retourindex" href="index.html">
-            <i class="fas fa-shopping-cart"></i>
-            <h1>Orinoco</h1>
-        </a>
-        <a class="monpanier" href="panier.html">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Mon panier</p>
-        </a> 
-    </header>
-    <!--Fin de Header avec panier--> 
-    <section>  
-        <div class="loader-container">
-            <div class="loader"></div>
-        </div>
-        <article id="container"> 
-            <article id="descriptionproduit"></article>
-            <div class="prixpanier">
-                <select name="lentilles disponible" id="choixlentilles">
-                </select>
-                <div id="error_lense"></div>
-                <div id="prix"></div>
-                <button id="btnaddcart" type="button">
-                    Ajouter au panier
-                </button>
-            </div>  
-        </article>
-    </section>
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item"><a href="#">Notre histoire</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Vie privée</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a href="#">Conditions d'utilisations</a></li>
-                    </ul>
-                    <p class="list-inline text-center">© 2020 Orinoco</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orinoco nos caméras vintage</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">   
+        <link rel="stylesheet" href="sass/style.css">
+    </head>
+    <body>
+        <!--Header avec panier-->
+        <header>
+            <a class="backindex" href="index.html">
+                <i class="fas fa-shopping-cart"></i>
+                <h1>Orinoco</h1>
+            </a>
+            <a class="monpanier" href="panier.html">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Mon panier</p>
+            </a> 
+        </header>
+        <!--Fin de Header avec panier--> 
+        <section>  
+            <div>
+                <div></div>
+            </div>
+            <article id="container"> 
+                <article id="descriptionproduit"></article>
+                <div class="prixpanier">
+                    <select name="lentilles disponible" id="choixlentilles">
+                    </select>
+                    <div id="error_lense"></div>
+                    <div id="prix"></div>
+                    <button id="btnaddcart" type="button">
+                        Ajouter au panier
+                    </button>
+                </div>  
+            </article>
+        </section>
+        <footer class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item"><a>Notre histoire</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a>Vie privée</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
+                        </ul>
+                        <p class="list-inline text-center">© 2020 Orinoco</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>  
-    <script src="js/produit.js"></script>
-</body>
+        </footer>  
+        <script src="js/produit.js"></script>
+    </body>
 </html>

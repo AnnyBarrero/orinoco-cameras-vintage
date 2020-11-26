@@ -3,9 +3,9 @@
 $clrbckhd: #f3e9f1; /*couleur background header*/
 $clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
 $clrborderpanier: #d3d3d3; /*couleur bordures panier*/
-$clrprimaire: #65AD42; /*vert bouton et background récap commande*/
+$clrprimaire: rgb(73, 170, 63); /*vert bouton et background récap commande*/
 $clrbckg: white; /*background et couleur blanche*/
-$clrimportant: red; /*prix et messages important*/
+$clrimportant: rgb(200, 17, 128); /*prix et messages important*/
 a:hover 
 { text-decoration: none; }
 @mixin degradeOrinoco{
@@ -14,6 +14,16 @@ a:hover
     background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+}
+@mixin degradeTitleCamera{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+    background: #e68a09; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #3f0a63 0%,#914083 50%,#c91793 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     -webkit-text-fill-color:transparent;
     -webkit-background-clip:text;
@@ -39,7 +49,7 @@ header{
             
         }
         h1{
-            font-size: 3em;
+            font-size: 4.5em;
             font-family: 'Playfair Display', serif;
             text-align: center;
             color: black;
@@ -48,13 +58,15 @@ header{
 
 }
 .title-camera{
+    margin: 120px;
     padding-bottom: 30px;
 
     h2{
             font-family: 'Playfair Display', serif;
             padding-bottom: 3px;
             padding-top: 3px;
-            font-size: 3em;
+            font-size: 6em;
+            @include degradeTitleCamera;
     }
     p{
         font-family: 'Playfair Display', serif;;
@@ -64,7 +76,9 @@ header{
 }
 footer{
     color: black;
-    padding-top: 150px;
+    background-color: $clrbckhd;
+    padding-top: 70px;
+    padding-bottom: 50px;
     font-size: 1.7em;
     font-family: 'Playfair Display', serif;
 }
@@ -79,9 +93,10 @@ footer{
         i{
             font-size: 3em;
             margin: auto;
+            @include degradeOrinoco;
         }
         p{
-            font-size: 1em;
+            font-size: 2em;
         }
         
     }
@@ -109,34 +124,37 @@ h2{
 }
 /*Produit*/
 
-.produit a{
+.produit{
+    font-family: 'Playfair Display', serif;
+    height: 390px;
+    
+    a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 2%;
-    border: 1px solid #ddd;
-    height: 155px;
+    height: 350px;
+    border: 3px solid $clrbckhd;
     transition: all 200ms ease-out;
     &:hover{
         box-shadow: 10px 5px 5px $clrbckhd;  
     }
     .imageproduit{
-        margin-top: 10px;
-        margin-left: 10px;
         height: 135px;
-        width: 200px;
+        
     }
     .libelle{
         flex-grow: 2;
-        margin-top: 30px;
+        margin-top: 20px;
         margin-left: 20px;
         color: black;
         h3{
             font-size: 2em;
             font-weight: bold;
             color: black;
+            padding-bottom: 15px;
         }
         p{
+            line-height: 2em;
             font-size: 1em;
             color: black;
         }
@@ -146,10 +164,11 @@ h2{
             font-size: 2em;
             color: $clrimportant;
             font-weight: bold;
-            margin: 50px 20px auto 50px;
+            margin: 52px auto;
         }
     }
 
+}
 }
 
 /**************************************************************************************/
@@ -294,16 +313,15 @@ h2{
 /**************************************************************************************/
 
 .products-container{
-    max-width: 80vw;
+    max-width: 90%;
     justify-content: space-around;
     margin: 0 auto;
-    margin-top: 3%;
-    font-family: 'Roboto','Calibri';
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
     h2{
         font-size: 3em;
         font-weight: bold;
-        margin-bottom: 5%;
+        margin-bottom: 20px;
     }
     .products-header{
         width: 100%;
@@ -450,7 +468,7 @@ h2{
     display: none;
     margin: 2% auto;
     padding: 3%;
-    width: 80vw;
+    width: 80%;
     height: auto;
     background: #fff;
     border-radius: 5px;
