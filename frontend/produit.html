@@ -12,7 +12,7 @@
     </head>
     <body>
         <!--Header avec panier-->
-        <header>
+        <header class="row">
             <a class="backindex" href="index.html">
                 <i class="fas fa-shopping-cart"></i>
                 <h1>Orinoco</h1>
@@ -22,40 +22,31 @@
                 <p>Mon panier</p>
             </a> 
         </header>
-        <!--Fin de Header avec panier--> 
-        <section>  
-            <div>
-                <div></div>
-            </div>
-            <article id="container"> 
-                <article id="descriptionproduit"></article>
-                <div class="prixpanier">
-                    <select name="lentilles disponible" id="choixlentilles">
-                    </select>
-                    <div id="error_lense"></div>
-                    <div id="prix"></div>
-                    <button id="btnaddcart" type="button">
-                        Ajouter au panier
-                    </button>
-                </div>  
-            </article>
-        </section>
-        <footer class="content">
+        <!--Fin de Header avec panier-->
+        <div class="row">
+            <div class="container containerCamera">
+                <div class="col-lg-6 col-md-6 col-sm-6" id="container-camera">
+                </div>
+                <button type="button" class="btn btn-info btn-lg btn-block add-to-cart" ><a href="#"> Ajouter au panier </a> </button>
+            </div>    
+        </div>
+        
+        <!-- FOOTER -->
+        <footer class="row">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item"><a>Notre histoire</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a>Vie privée</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
-                        </ul>
-                        <p class="list-inline text-center">© 2020 Orinoco</p>
-                    </div>
+                <div class="col">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a>Oricaméras</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
+                    </ul>
                 </div>
             </div>
         </footer>  
-        <script src="js/produit.js"></script>
+        <script src="/frontend/js/produit.js"></script>
+        <script src="js/modal.js"asynch></script>
+        
     </body>
 </html>

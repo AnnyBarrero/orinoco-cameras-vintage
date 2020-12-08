@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco nos caméras vintage</title>
@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">   
     <link rel="stylesheet" href="sass/style.css">
     
-    </head>
+</head>
     <body>
         <!--Header avec panier-->
-        <header>
+        <header class="row">
             <a class="backindex" href="index.html">
                 <i class="fas fa-shopping-cart"></i>
                 <h1>Orinoco</h1>
@@ -24,9 +24,9 @@
             </a> 
         </header>
         <!--Fin de Header avec panier-->
-        <!--Nom de la catégorie-->
+        <!--Nom de la catégorie: ACCUEIL-->
         <section class="title-camera">
-            <h2 class="text-center">Caméras vintage</h2>
+            <h2 class="text-center">Oricaméras</h2>
             <p>
                 Faites votre shopping parmi nos différents produits et faites vous livrer directement dans
                 votre boîte aux lettres.<br />Bonne visite sur Orinoco !
@@ -34,27 +34,26 @@
         </section>  
         <!--Fin du Nom de la catégorie-->
         <!--Produits-->
-        <div class="container container-grid">
-            <div class="row" id="produits">
-                
+        <div class="container">
+            <div class="row">
+            <div id="produits"></div>       
             </div>
         </div>
-        <footer class="content">
-            <div class="container-fluid">
-                <div class="row">
+            <footer class="row">
+                <div class="container-fluid">
                     <div class="col">
                         <ul class="list-inline text-center">
-                            <li class="list-inline-item"><a>Notre histoire</a></li>
+                            <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
                             <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a>Vie privée</a></li>
+                            <li class="list-inline-item"><a>Oricaméras</a></li>
                             <li class="list-inline-item">&middot;</li>
                             <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
                         </ul>
-                        <p class="list-inline text-center">© 2020 Orinoco</p>
                     </div>
                 </div>
-            </div>
-        </footer>  
+            </footer>
+            
         <script src="js/accueil.js"asynch></script>
+        <script src="js/modal.js"asynch></script>
 	</body>
 </html>

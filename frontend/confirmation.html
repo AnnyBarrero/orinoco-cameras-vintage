@@ -24,40 +24,51 @@
         </head>
         <body>
             <!--Header avec panier-->
-            <header>
-                <a class="backindex" href="index.html">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h1>Orinoco</h1>
-                </a>
-                <a class="monpanier" href="panier.html">
-                    <i class="fas fa-shopping-basket"></i>
-                    <p>Mon panier</p>
-                </a> 
-            </header>
-            <!--Fin de Header avec panier-->
-            <!--Nom de la catégorie-->
-            <section id="validation">
-                <div class="recap"></div>
+        <header class="row">
+            <a class="backindex" href="index.html">
                 <i class="fas fa-shopping-cart"></i>
-                <h2>Orinoco vous remercie pour votre commande !</h2>
-                <h3>A bientôt</h3>
-                <button class="btn-accueil">Retour à la page d'accueil</button>
-            </section>  
-            <footer class="content">
+                <h1>Orinoco</h1>
+            </a>
+            <a class="monpanier" href="panier.html">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Mon panier</p>
+            </a> 
+        </header>
+        <!--Fin de Header avec panier-->
+            <!--Nom de la catégorie-->
+            <div class="container-about">
+    
+
+                <div class="row">
+            
+                  <div class="col-lg-12 propos">
+            
+                    <h1 class="propos-titre"> Confirmation de commande </h1>
+            
+                    <p class="confirm-paragraphe" id="confirmationOrder">  
+                    
+            
+                    </p>
+                    
+                   
+            
+                  </div>
+                </div>
+              </div> 
+            <footer class="row">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-inline text-center">
-                                <li class="list-inline-item"><a>Notre histoire</a></li>
-                                <li class="list-inline-item">&middot;</li>
-                                <li class="list-inline-item"><a>Vie privée</a></li>
-                                <li class="list-inline-item">&middot;</li>
-                                <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
-                            </ul>
-                            <p class="list-inline text-center">© 2020 Orinoco</p>
-                        </div>
+                    <div class="col">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a>Oricaméras</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
+                        </ul>
                     </div>
                 </div>
-            </footer>  
+            </footer>
+            <script src="/frontend/js/confirmation.js"></script>
+            <script src="js/modal.js"asynch></script>
 </body>
 </html>
