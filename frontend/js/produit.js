@@ -1,22 +1,26 @@
 const urlApi = "http://localhost:3000/api/cameras";
 const searchParams = new URLSearchParams(window.location.search);
 const itemId = searchParams.get("id");
+//con esto hacemos cargar los elementos
 const urlApiId = urlApi +"/"+itemId;
 console.log(itemId);
+//el query solo va a buscar la info dentro de container-camera
 const cameraContainer = document.querySelector('#container-camera');
 let btn = document.querySelector(".add-to-cart");
     console.log(btn);
 
 
-
+    //creamos la funcion, ponemos la url con el await le decimos espere vamos a utilizar el fetch
     const appelDeApi = async function () {
         let response = await fetch(urlApiId);
         if (response.ok) {
+        //espero la respuesta, vamos a transformar el json en objetos 
         let itemCam = await response.json();
         console.log(itemCam);
         //fonction pour afficher l'item
         afficherUnItem(itemCam);
         //A l'ecoute du bouton ajout panier
+        //utilizo eladdevenlistener para crear el boton
         btn.addEventListener("click",()=>{
             let choixCamera = {
                 camName : itemCam.name,
@@ -31,7 +35,7 @@ let btn = document.querySelector(".add-to-cart");
                 }
                  };
             if(typeof localStorage != "undefined"){
-                //recuperer la valeur dans le storage
+                //recuperer la valeur dans le storage, con el triple decimos que esto tiene que ser un numero y tienen que ser iguales
                 let camerasStore = JSON.parse(localStorage.getItem("camerasInCart"));
                 if (camerasStore === null || camerasStore === "undefined") {
                     camerasStore = []; //creer le tableau
@@ -51,7 +55,7 @@ let btn = document.querySelector(".add-to-cart");
 
     }
 };
-//function pour afficher l'item
+//function pour afficher l'item camera
 function afficherUnItem(itemCam) {
     let itemCamer = document.createElement("div");
     itemCamer.innerHTML = `
@@ -70,6 +74,9 @@ function afficherUnItem(itemCam) {
     <select class="form-control" id="choix-lentilles">
     </select> </div></form></div>
     `
+    //inserta un nuevo nodo dentro de la estructura de un documento, en este
+    //caso la option lentille
+    //el append tmbien va almacenando
     cameraContainer.appendChild(itemCamer);
     compteur();
     optionLentille(itemCam);

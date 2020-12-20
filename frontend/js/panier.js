@@ -10,7 +10,7 @@ function recupCameras() {
         camerasStore = [];
     }
     return camerasStore;
-}
+} 
 let camerasStore = recupCameras();
 console.log(camerasStore);
 //fonction por afficher les caméras
@@ -35,6 +35,8 @@ if (camerasStore.length === 0 || camerasStore === null && getComputedStyle(valid
    //fonction poour creer l'element camera
     function createCameraElement(camera, index) {
     const ul = document.createElement('ul');
+    //aca le decimos que dentro de ese ul hay un atributo class, uldisposition
+    //Si ya esta creado lo utilizo y lo incorporamos
     ul.setAttribute("class", "ulDisposition");
     ul.innerHTML = `
      <li class="liDisp">Article
