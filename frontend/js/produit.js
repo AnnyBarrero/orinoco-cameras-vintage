@@ -60,8 +60,8 @@ function afficherUnItem(itemCam) {
     let itemCamer = document.createElement("div");
     itemCamer.innerHTML = `
     <div class="row">
-    <img class="col-6 rounded float-start" src="${itemCam.imageUrl}" alt="">
-    <div class="col-6 rounded float-end card text-center">
+    <img class="col-lg-6 col-md-6 col-sm-12 rounded float-start" src="${itemCam.imageUrl}" alt="">
+    <div class="col-lg-6 col-md-6 col-sm-12 rounded float-end card text-center">
      <div class="card-header"><h2> ${itemCam.name}</h2>
     <p> ${itemCam.price/100} € </p> </div>
    <div class="card-body">
