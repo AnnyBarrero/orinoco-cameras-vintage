@@ -59,9 +59,12 @@ let btn = document.querySelector(".add-to-cart");
 function afficherUnItem(itemCam) {
     let itemCamer = document.createElement("div");
     itemCamer.innerHTML = `
-    <div class="card text-center"> <div class="card-header"><h2> ${itemCam.name}</h2>
+    <div class="row">
+    <img class="col-6 rounded float-start" src="${itemCam.imageUrl}" alt="">
+    <div class="col-6 rounded float-end card text-center">
+     <div class="card-header"><h2> ${itemCam.name}</h2>
     <p> ${itemCam.price/100} € </p> </div>
-   <div class="card-body"><img class="card-img-top" src="${itemCam.imageUrl}" alt="">
+   <div class="card-body">
     <p class="card-text">${itemCam.description} </p> </div>
    <div class="card-footer text-muted">
     <form>
@@ -72,7 +75,9 @@ function afficherUnItem(itemCam) {
     </div><div class="form-group">
     <label>Choisissez une lentille </label>
     <select class="form-control" id="choix-lentilles">
-    </select> </div></form></div>
+    </select> </div></form>
+    <a href="#"> <button type="button" class="btn btn-info btn-s add-to-cart" > Ajouter au panier  </button> </a>
+    </div> </div>
     `
     //inserta un nuevo nodo dentro de la estructura de un documento, en este
     //caso la option lentille
