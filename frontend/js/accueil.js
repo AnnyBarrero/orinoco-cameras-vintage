@@ -37,7 +37,7 @@ function afficherCamera(camera){
        <div class="card-body"><img class="card-img-top" src="${camera.imageUrl}" alt="">
         <p class="card-text">${camera.description} </p> </div>
         <div class="card-footer text-muted">
-        <button type="button" class="btn btn-info btn-lg btn-block" ><a href="produit.html?id=${camera._id}"> Sélectionnez</a> </button>
+        <a href="produit.html?id=${camera._id}">  <button type="button" class="btn btn-info btn-xs btn-block" > Sélectionnez </button></a>
       </div> </div>
         `;
         camerasOrinoco.appendChild(cameraElement);
