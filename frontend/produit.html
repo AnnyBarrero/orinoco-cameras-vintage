@@ -12,7 +12,7 @@
     </head>
     <body>
         <!--Header avec panier-->
-        <header class="row">
+        <header>
             <a class="backindex" href="index.html">
                 <i class="fas fa-shopping-cart"></i>
                 <h1>Orinoco</h1>
@@ -23,27 +23,35 @@
             </a> 
         </header>
         <!--Fin de Header avec panier-->
-        <div class="container containerCamera" id="container-camera">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-6" >
-                </div>
-              </div>    
-        </div>
+        <!--Produits-->
+        <section class="title-camera">
+            <h2 class="text-center">Oricaméras, votre produit...</h2>
+        </section> 
         
-        <!-- FOOTER -->
-        <footer class="row">
-            <div class="container-fluid">
-                <div class="col">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a>Oricaméras</a></li>
-                        <li class="list-inline-item">&middot;</li>
-                        <li class="list-inline-item"><a>Conditions d'utilisations</a></li>
-                    </ul>
-                </div>
+        <div class="container container-produit-camera">
+           <div id="descriptionproduit">
+
+           </div> 
+           <div class="col-lg-6 col-md-4 col-sm-3  float-right card ">
+                 <button id="btnAddCart" type="button" class="btn btn-info btn-s add-to-cart " > <a href="panier.html"> Ajouter au panier </a> </button>
             </div>
-        </footer>  
+        
+        </div>   
+         
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">       
+                    <div class="col-md-12">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="apropos.html">Oricaméras</a></li>
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+        </footer> 
         <script src="/frontend/js/produit.js"></script>
     </body>
 </html>

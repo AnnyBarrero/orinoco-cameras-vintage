@@ -106,19 +106,33 @@ a:hover a h1 {
 /*background et couleur blanche*/
 /*messages important*/
 /*pour le titres et prix*/
+a {
+  color: black;
+  text-decoration: none;
+}
+
 a:hover {
   text-decoration: none;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
 /*HEADER ET FOOTER*/
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -180,10 +194,11 @@ header .backindex h1 {
 }
 
 footer {
+  bottom: 0;
+  width: 100%;
+  height: 70px;
   color: black;
   background-color: #78cde9;
-  padding-top: 25px;
-  padding-bottom: 20px;
   font-size: 1em;
   font-family: 'Playfair Display', serif;
 }
@@ -225,6 +240,7 @@ footer {
 /*CARD Produits */
 #produits {
   margin-bottom: 40px;
+  padding-bottom: 20px;
   margin-top: 40px;
   padding-top: 20px;
   display: -webkit-box;
@@ -304,38 +320,24 @@ a:hover {
 /**************************************************************************************/
 /********************************** PRODUIT*********************************************/
 /**************************************************************************************/
-.containerCamera {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.container-produit-camera {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+#descriptionproduit {
+  padding-top: 50px;
+  margin-top: 50px;
   font-family: 'Playfair Display', serif;
 }
 
-#container-camera {
-  margin-top: 100px;
-  margin-bottom: 20px;
+#descriptionproduit p {
+  font-size: 1.2em;
+  color: black;
 }
 
-.add-to-cart {
-  margin-bottom: 20px;
-}
-
-#container-panier {
-  margin-top: 150px;
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-bottom: 10px;
-  border: grey 1px solid;
+.cam-options {
+  line-height: 2.3em;
 }
 
 #container-form {
@@ -382,140 +384,249 @@ a:hover {
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PRODUIT*****************************/
 /**************************************************************************************/
-@media screen and (max-width: 1000px) {
-  #container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: auto;
-    margin: 40px 20px;
-    background-color: white;
-  }
-  #descriptionproduit {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    background-color: white;
-  }
-  .prixpanier {
-    text-align: center;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 700px) {
   #container {
     border: none;
   }
   #descriptionproduit {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #descriptionproduit .imageproduit {
-    padding: 1%;
-  }
-  #descriptionproduit h3 {
-    text-align: center;
-  }
-  #descriptionproduit .ref {
-    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
   }
   #descriptionproduit p {
-    text-align: center;
+    font-size: 1em;
+    color: black;
   }
 }
 
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
-.articlePanier {
+.products-container {
+  max-width: 80vw;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 3%;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.products-container h2 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.products-container .products-header {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: center;
+  border-bottom: 3px solid #d3d3d3;
 }
 
-.titrePanier {
+.products-container .products-header .products-title {
+  width: 33%;
+}
+
+.products-container .products-header .products-option {
+  width: 17%;
+}
+
+.products-container .products-header .products-price {
+  width: 20%;
+}
+
+.products-container .products-header .products-quantity {
+  width: 10%;
+}
+
+.products-container .products-header .products-total {
+  width: 20%;
+}
+
+.products-container .products .product {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 1% 0;
+  border-bottom: 1px solid #d3d3d3;
+  font-size: 1.2em;
+  white-space: nowrap;
+}
+
+.products-container .products .product .product-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 33%;
+}
+
+.products-container .products .product .product-name ion-icon {
+  font-size: 1.5em;
+  color: #17A2B8;
+  cursor: pointer;
+}
+
+.products-container .products .product .product-name ion-icon:active {
+  scale: 0.8;
+}
+
+.products-container .products .product .product-name img {
+  width: 33%;
+}
+
+.products-container .products .product .product-name span {
+  width: 33%;
+  text-align: center;
+}
+
+.products-container .products .product .product-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 17%;
+}
+
+.products-container .products .product .product-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+}
+
+.products-container .products .product .product-quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+}
+
+.products-container .products .product .product-quantity ion-icon {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  font-size: 1.5em;
+  color: #17A2B8;
+  cursor: pointer;
+}
+
+.products-container .products .product .product-quantity ion-icon:active {
+  scale: 0.8;
+}
+
+.products-container .products .product .product-quantity span {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
+.products-container .products .product .product-total {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.products-container .no-products {
+  margin-bottom: 5vw;
+}
+
+.products-container .no-products p {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.products-container .no-products p a {
+  text-decoration: underline;
+  color: #17A2B8;
+}
+
+.products-container .total-basket {
+  text-align: center;
+  font-size: 2vw;
+  margin: 2%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.titrePanier i {
-  font-size: 2em;
-  margin-right: 2%;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
-  background: #e68a09;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #e68a09 0%, #af6ca4 50%, #8f5bfe 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-}
-
-.prixPanier {
-  text-align: center;
-}
-
-#container-button {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-#container-form {
-  display: none;
-  border-radius: 10px;
-}
-
-input:invalid {
-  border: 2px solid #17A2B8;
-}
-
-input:valid {
   border: 1px solid black;
-  margin-left: 20px;
 }
 
-.form-group button {
-  margin-left: 110px;
+.products-container .total-basket h5 {
+  margin-left: 10%;
 }
 
-.carIndex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.products-container .total-basket h6 {
+  margin-right: 10%;
 }
 
-#carouselIndex {
-  border: 3px solid #00000008;
-  border-radius: 10px;
-  background-color: #00000008;
+.products-container #btnorder {
+  display: block;
+  margin: 5% auto;
+  font-size: 1.2em;
+  height: 54px;
+  background: #49aa3f;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1px solid #243e18;
+  text-shadow: 1px 2px 0 #243e18;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.products-container #btnorder:hover {
+  border: 0px solid #243e18;
+}
+
+.products-container #btnorder:active {
+  -webkit-box-shadow: 1px 1px 1px 5px white inset;
+          box-shadow: 1px 1px 1px 5px white inset;
 }
 
 .pagePanier {
@@ -550,10 +661,6 @@ input:valid {
   padding: 10px;
 }
 
-#container-panier2 {
-  margin-top: 30px;
-}
-
 .ulDisposition {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -585,42 +692,30 @@ input:valid {
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PANIER******************************/
 /**************************************************************************************/
-/*@media screen and (max-width: 770px){} */
-/*mise en page modal*/
-.calc {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+/**********************************PAGE A PROPOS******************************/
+.title-camera-apropos {
+  padding-bottom: 60px;
+  margin-bottom: 60px;
 }
 
-.modale {
-  border: #6C757D 4px solid;
-  border-radius: 10px;
-  background: cornsilk;
-  min-width: 30rem;
+.title-camera-apropos h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  margin: 2% auto;
+  color: black;
+  text-shadow: 3px 3px 3px #78cde9;
 }
 
-.modale p {
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+.title-camera-apropos p {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 1.3em;
 }
 
-.modale .btn {
-  margin-left: 20px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+/********************************** RESPONSIVE PAGE A PROPOS******************************/
+@media screen and (max-width: 770px) {
+  .title-camera-apropos p {
+    font-size: 1em;
+  }
 }
 /*# sourceMappingURL=style.css.map */

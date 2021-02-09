@@ -8,8 +8,12 @@ $clrbckg: white; /*background et couleur blanche*/
 $clrimportant: rgb(200, 17, 128); /*messages important*/
 $clrbutton: rgb(99, 52, 78);
 $clrtitles: #17A2B8; /*pour le titres et prix*/
+a{color: black; text-decoration: none;}
 a:hover 
 { text-decoration: none; }
+a:link
+{text-decoration: none; }
+a:visited {text-decoration: none;}
 @mixin degradeOrinoco{
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
     background: #e68a09; /* Old browsers */
@@ -31,10 +35,13 @@ a:hover
     -webkit-background-clip:text;
 }
 /*HEADER ET FOOTER*/
+html {
+    position: relative;
+    min-height: 100%;
+}
 
 header{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -76,12 +83,15 @@ header{
     }
 }
 footer{
+    bottom: 0;
+    width: 100%;
+    height: 70px;
     color: black;
     background-color: $clrbckhd;
-    padding-top: 25px;
-    padding-bottom: 20px;
     font-size: 1em;
     font-family: 'Playfair Display', serif;
+
+  
 }
 
     /*HEADER PANIER*/
@@ -108,8 +118,10 @@ footer{
 
 #produits{
     margin-bottom: 40px;
+    padding-bottom: 20px;
     margin-top: 40px;
     padding-top: 20px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -198,29 +210,24 @@ a:hover{
 /**************************************************************************************/
 /********************************** PRODUIT*********************************************/
 /**************************************************************************************/
-.containerCamera{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container-produit-camera{
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+#descriptionproduit{
+    padding-top: 50px;
+    margin-top: 50px;
     font-family: 'Playfair Display', serif;
+p{
+    font-size: 1.2em;
+    color: black;
+}    
+}
+.cam-options{
+    line-height: 2.3em;
 }
 
-#container-camera{
-    margin-top: 100px;
-    margin-bottom: 20px;
-    
-}
-.add-to-cart{
-    margin-bottom: 20px;
-}
-#container-panier{
-    margin-top: 150px;
-    margin-right: 50px;
-    margin-left: 50px;
-    margin-bottom:10px;
-    border: grey 1px solid; 
-}
+
 #container-form{
     margin-top: 30px;
     margin-right: 50px;
@@ -254,106 +261,182 @@ a:hover{
 /**********************************RESPONSIVE PAGE PRODUIT*****************************/
 /**************************************************************************************/
 
-@media screen and (max-width: 1000px){
 
-    #container{
-    flex-direction: column;
-    width: auto;
-    margin: 40px 20px;
-    background-color: $clrbckg;
-    }
-    #descriptionproduit{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: $clrbckg;
-    }
-    .prixpanier{
-        text-align: center;
-        width: 100%;
-    }
-}
 @media screen and (max-width: 700px){
     #container{
         border: none;
     }
+   
     #descriptionproduit{
-        flex-direction: column;
-        .imageproduit{
-            padding: 1%;
-        }
-        h3{
-            text-align: center;
-        }
-        .ref{
-            text-align: center;
-        }
-        p{
-            text-align: center;
-        }
+        padding-top: 20px;
+        margin-top: 20px;
+        font-family: 'Playfair Display', serif;
+    p{
+        font-size: 1em;
+        color: black;
+    }    
     }
 }
+
 
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
 
-
-.articlePanier{
-    display: flex;
-    flex-direction: column;
-}
-.titrePanier{
-    display: flex;
-    justify-content: space-between;
-    i{
-        font-size: 2em;
-        margin-right: 2%;
-        @include degradeOrinoco;
-        
+.products-container{
+    max-width: 80vw;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 3%;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    h2{
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 5%;
+    }
+    .products-header{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        border-bottom: 3px solid $clrborderpanier;
+        .products-title{
+            width: 33%;
+        }
+        .products-option{
+            width: 17%;
+        }
+        .products-price{
+            width: 20%;
+        }
+        .products-quantity{
+            width: 10%;
+        }
+        .products-total{
+            width: 20%;
+        }
+    }
+    .products{
+        .product{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding: 1% 0;
+            border-bottom: 1px solid $clrborderpanier;
+            font-size: 1.2em;
+            white-space: nowrap;
+            .product-name{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 33%;
+                ion-icon{
+                    font-size: 1.5em;
+                    color: $clrtitles;
+                    cursor: pointer;
+                    &:active{
+                        scale: 0.8;
+                    }
+                }
+                img{
+                    width: 33%;
+                }
+                span{
+                    width: 33%;
+                    text-align: center;
+                }
+            }
+            .product-option{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 17%;
+            }
+            .product-price{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 20%;
+            }
+            .product-quantity{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 10%;
+                ion-icon{
+                    flex-grow: 2;
+                    font-size: 1.5em;
+                    color: $clrtitles;
+                    cursor: pointer;
+                    &:active{
+                        scale: 0.8; 
+                    }
+                }
+                span{
+                    flex-grow: 1;
+                    text-align: center;
+                }
+            }
+            .product-total{
+                width: 20%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+        }
+    }
+    .no-products{
+        margin-bottom: 5vw;
+        p{
+            font-size: 2em;
+            text-align: center;
+            margin-top: 3%;
+            a{
+                text-decoration: underline;
+                color: $clrtitles;
+            }
+        }
+    }
+    .total-basket{
+        text-align: center;
+        font-size: 2vw;
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+        h5{
+            margin-left: 10%;
+        }
+        h6{
+            margin-right: 10%;
+        }
+    }
+    #btnorder{
+        display: block;
+        margin: 5% auto;
+        font-size: 1.2em;
+        height: 54px;
+        background: $clrprimaire;
+        color: $clrbckg;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        border: 1px solid $clrborderbutton;
+        text-shadow: 1px 2px 0 $clrborderbutton;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover{
+            border: 0px solid $clrborderbutton;
+        }
+        &:active{
+            box-shadow: 1px 1px 1px 5px $clrbckg inset;  
+        }
     }
 }
-.prixPanier{
-    text-align: center;
-}
-#container-button{
-    text-align: center; 
-    margin-bottom: 50px;
-    
-    
-}
-#container-form{
-    display: none;
-    border-radius: 10px;
-}
-input:invalid {
-    border: 2px solid $clrtitles;
-    
-  }
-  
-  input:valid {
-    border: 1px solid black;
-    margin-left: 20px;
-    
-  }
-  
-  .form-group button{
-    margin-left: 110px;
-    
-    
-  }
- .carIndex{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
- } 
 
- #carouselIndex{
-     border : 3px solid #00000008;
-     border-radius: 10px;
-     background-color:#00000008 ;
-    
- } 
+
+
  .pagePanier{
     display: flex;
     flex-direction: column;
@@ -375,9 +458,7 @@ input:invalid {
     padding: 10px;
  }
 
-#container-panier2{
-    margin-top: 30px;
-}
+
 .ulDisposition{
    display: flex;
    list-style: none;
@@ -408,41 +489,30 @@ input:invalid {
 /**********************************RESPONSIVE PAGE PANIER******************************/
 /**************************************************************************************/
 
-@media screen and (max-width: 1200px){}
-    
 
-@media screen and (max-width: 850px){}
-    
-    
-
-/*@media screen and (max-width: 770px){} */
-
-    
-/*mise en page modal*/
-.calc{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    display:flex;
-    justify-content: center;
-    align-items: center;
+ 
+/**********************************PAGE A PROPOS******************************/
+.title-camera-apropos{
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+    h2{
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin: 2% auto;
+            color: black;
+            text-shadow: 3px 3px 3px $clrbckhd;
+    }
+    p{
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        font-size: 1.3em;
+    }
 }
-.modale{
-    border: #6C757D 4px solid;
-    border-radius: 10px;
-    background: cornsilk;
-    min-width: 30rem;
-}
-.modale p{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.modale .btn{
-    margin-left:20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
+ /********************************** RESPONSIVE PAGE A PROPOS******************************/
+ @media screen and (max-width: 770px){
+     .title-camera-apropos{
+         p{
+             font-size: 1em;
+         }
+     }
+ }

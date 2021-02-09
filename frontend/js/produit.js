@@ -1,109 +1,128 @@
-const urlApi = "http://localhost:3000/api/cameras";
+const urlCameras = "http://localhost:3000/api/cameras/";
 const searchParams = new URLSearchParams(window.location.search);
 const itemId = searchParams.get("id");
-//con esto hacemos cargar los elementos
-const urlApiId = urlApi +"/"+itemId;
+const urlApiId = urlCameras + "/"+itemId;
 console.log(itemId);
-//el query solo va a buscar la info dentro de container-camera
-const cameraContainer = document.querySelector('#container-camera');
-let btn = document.querySelector(".add-to-cart");
-    console.log(btn);
+
+// connection avec les produits sur le serveur 
+const descriptionproduit = document.getElementById('descriptionproduit');
+
+//Button add-to-cart
+let addCartBtn = document.getElementById('btnAddCart');
+
+/**
+ * set panier value
+ * @param {*} newCam 
+ * return object
+ */
+function setPanierValue (newCam) {
+    return {
+        camName : newCam.name, 
+        camPrice : newCam.price/100, 
+        camId : newCam._id, 
+        camImage : newCam.imageUrl,
+        camQuantite :parseInt( document.getElementById("qte").value),
+        get totalPrice (){
+            return this.camPrice * this.camQuantite;
+        }
+    }
+}
+
+const appelDeApi = async function () {
+    let response = await fetch(urlApiId);
+    if (response.ok) {
+        const newCam = await response.json();
+        //Fonction pour afficher l'item
+        afficherUnItem(newCam);
+        // Al'ecoute du btn ajout panier
+        addCartBtn.addEventListener('click', (e) => {
+            const article = setPanierValue(newCam);
+            
+            if(typeof localStorage != "null"){
+                //on recupere la valeur dans le Web Storage
+                const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
+                let newPanier;
+                if (panier.length === 0) {
+                    panier.push(article); //on crée le tableau
+                } else {
+                    // vérifier si le produit est déjà dans le panier
+                    let isItemInPanier = panier.find(item => item.camId === newCam._id);
+                    if (isItemInPanier) {
+                        newPanier = panier.map(function(item) {
+                            if (item.camId === newCam._id) {
+                                // le produit existe déjà, je doit changer la quantité
+                                item.camQuantite = parseInt(item.camQuantite) + parseInt(document.getElementById("qte").value);
+                            }
+                            return item;
+                        });
+                    } else {
+                        panier.push(article);
+                    }
+                    // ajouter dans le panier
+                }
+                if (newPanier) {
+                    localStorage.setItem("keyPanier", JSON.stringify(newPanier));
+                } else {
+                    localStorage.setItem("keyPanier", JSON.stringify(panier));
+                }
+            } 
+        });
+    
+    }
+};
 
 
-    //creamos la funcion, ponemos la url con el await le decimos espere vamos a utilizar el fetch
-    const appelDeApi = async function () {
-        let response = await fetch(urlApiId);
-        if (response.ok) {
-        //espero la respuesta, vamos a transformar el json en objetos 
-        let itemCam = await response.json();
-        console.log(itemCam);
-        //fonction pour afficher l'item
-        afficherUnItem(itemCam);
-        //A l'ecoute du bouton ajout panier
-        //utilizo eladdevenlistener para crear el boton
-        btn.addEventListener("click",()=>{
-            let choixCamera = {
-                camName : itemCam.name,
-                camId   : itemCam._id,
-                camImage: itemCam.imageUrl,
-                camPrice: itemCam.price/100,
-                camLenses: document.getElementById("choix-lentilles").value,
-                camQuantite :parseInt( document.getElementById("qte").value),
-                get totalPrice (){
-                    return this.camPrice * this.camQuantite;
-                
-                }
-                 };
-            if(typeof localStorage != "undefined"){
-                //recuperer la valeur dans le storage, con el triple decimos que esto tiene que ser un numero y tienen que ser iguales
-                let camerasStore = JSON.parse(localStorage.getItem("camerasInCart"));
-                if (camerasStore === null || camerasStore === "undefined") {
-                    camerasStore = []; //creer le tableau
+//mise en place de l'HTML
+    function afficherUnItem(newCam) {
+        let cameraCart = document.createElement("div");
+        cameraCart.setAttribute("class","flex-row flex-wrap card")
+        cameraCart.innerHTML = `
+        <div class=" col-lg-6 col-md-12  float-start card">
+            <img id="imageUrl" src="${newCam.imageUrl}" alt="">        
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12  float-end card text-center">
+            <div class="card-header">
+              <h2 class="card-title" id="titre">${newCam.name}</h2>
+              <p class="card-text" id="prix"> ${newCam.price/100} €</p> 
+            </div>
+            <div class="card-body">
+              <p class="card-text" id="description">
+                    ${newCam.description}
+                </p> 
+                <label for="quantité">Quantité (<em> Dans la limite des cameras </em>) </label>
+                <select class="cameras disponibles" id="qte" name="quantité">
+                </select>
+                <p class="lentilles-choix"> Choisissez une lentille </p>
+                <select name="lentilles disponibles" id="choixlentilles">
+                </select>
+            </div>
+            
+        </div>    
+              
+            `;
+            descriptionproduit.appendChild(cameraCart);
+            compteur();
+            choixlentilles(newCam);
+    };
 
-                }
-                if(camerasStore) {
-                    camerasStore.push(choixCamera); // si el table existe hacemos push en la eleccion de camera
-                }
-                localStorage.setItem("camerasInCart", JSON.stringify(camerasStore));
-                //aca iria la frase del modal pero no la puse, para probar si igual funciona
-                openModal(`${itemCam.name} a bien été ajouté au panier. Voulez-vous choisir une autre caméra?`);
-            } else {
-              alert("localStorage n'est pas supporté");
+        //fonction pour la qty
+        function compteur() {
+            let optionQty = document.getElementById("qte");
+            for (let nbr = 1; nbr <= 10; nbr++) {
+                let newQty = document.createElement("option");
+                newQty.innerText += nbr;
+                optionQty.append(newQty);
+            }
+        };
+        //fonction pour afficher les options de couleurs.
+        function choixlentilles(newCam) {
+            let choixlentilles = document.getElementById("choixlentilles")
+            for (let i = 0; i < newCam.lenses.length; i++) {
+                let newchoixlentilles = document.createElement("option")
+                newchoixlentilles.innerText = newCam.lenses[i];
+                choixlentilles.append(newchoixlentilles);
             }
             
-        });
-
-    }
-};
-//function pour afficher l'item camera
-function afficherUnItem(itemCam) {
-    let itemCamer = document.createElement("div");
-    itemCamer.innerHTML = `
-    <div class="row">
-    <img class="col-lg-6 col-md-6 col-sm-12 rounded float-start" src="${itemCam.imageUrl}" alt="">
-    <div class="col-lg-6 col-md-6 col-sm-12 rounded float-end card text-center">
-     <div class="card-header"><h2> ${itemCam.name}</h2>
-    <p> ${itemCam.price/100} € </p> </div>
-   <div class="card-body">
-    <p class="card-text">${itemCam.description} </p> </div>
-   <div class="card-footer text-muted">
-    <form>
-    <div class="form-group">
-      <label for="quantité">Choisissez une quantité (<em> Dans la limite de 10 caméras </em>) </label>
-      <select class="form-control" id="qte" name="quantité">
-      </select>
-    </div><div class="form-group">
-    <label>Choisissez une lentille </label>
-    <select class="form-control" id="choix-lentilles">
-    </select> </div></form>
-    <a href="#"> <button type="button" class="btn btn-info btn-s add-to-cart" > Ajouter au panier  </button> </a>
-    </div> </div>
-    `
-    //inserta un nuevo nodo dentro de la estructura de un documento, en este
-    //caso la option lentille
-    //el append tmbien va almacenando
-    cameraContainer.appendChild(itemCamer);
-    compteur();
-    optionLentille(itemCam);
-
-};
-//
-function compteur () {
-    let optionQuantite = document.getElementById("qte");
-    for (let nbr = 1; nbr <= 10; nbr++) {
-        let newQuantite = document.createElement("option");
-        newQuantite.innerText += nbr;
-        optionQuantite.append(newQuantite);
-    }
-};
-//function pour afficher les options de lentilles
-
-function optionLentille(itemCam) {
-    let optionLentille = document.getElementById("choix-lentilles")
-    for (let i = 0; i < itemCam.lenses.length; i++) {
-        let newOptionLentille = document.createElement("option")
-        newOptionLentille.innerText = itemCam.lenses[i];
-        optionLentille.append(newOptionLentille);
-    }
-};
-appelDeApi();
+        };
+        
+        appelDeApi();
