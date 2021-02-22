@@ -35,90 +35,90 @@
         </section>  
 
         <!--Nom de la catégorie: PANIER-->
-        <section class="pagePanier products-container">
+        <section class="container containerPagePanier">
 
-          <div class="row">
-            <div class="affichageCamerasPanier" id="container-panier2">
+          <div class="border-details border-info rounded shadow-lg my-5 p-4 text-center">
+            <table class="table .table-responsive{-sm|-md|-lg|-xl}">
+            <thead class="table-info">
+              <tr>
+                <th scope="col">Photo</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix unitaire</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Supprimer</th>
+                <th scope="col">Prix Total</th>
+              </tr>
+            </thead>
+          
+            
+             <!-- Contenu du panier -->
+            <tbody id='basket-content'>
+              <!--Complèter chaque élément ajouté au panier avec le JS-->
+            </tbody>
+            </table>
+          
+            <div class="d-flex flex-column align-items-center">
+              <p class="total-Panier">Total Panier: </p>
+              <p id="total-price"><!-- Prix total de la commande  à compléter avec le JS--></p>
             </div>
-            <!--ESTO ES AL FINAL DEL TABLEAU LA CANTIDAD, EL PRECIO TOTAL Y-->
-            <h5 class="products-quantity" id="cart-qte"></h5>
-            <h5 class="products-total" id="totalPricePanier"></h5>
-
+            <!-- Prix et bouton de vider le panier -->
+            <div class="d-flex flex-column align-items-end">
+                
+              <!-- Prix total de la commande  à compléter avec le JS-->
+                <div class="no-products">
+                <!-- S'il y pas des produits dans le panier-->
+                </div>
+                <div id="button-clear-basket">
+              <!-- Bouton : vider le panier à compléter avec le JS-->
+                </div>
+              <!-- Bouton : VALIDER COMMANDE compléter avec le JS-->
+                <button id="btnorder" class="btn btn-info btn-xs">Passer la commande</button>
+            </div>
           </div>
+          <!-- 
           <div class="row ">
             <div class="col-lg-10" id="container-button">
             <button type="button" class="btn btn-info" id="validate" > Validez votre commande </button> 
             </div>
-          </div>
+          </div> -->
         </section>  
         
         <!--Formulaire à remplir après la confirmation de commande-->
         <section id="formulaire">
-         
+          <div id="recapCommande"></div>
           <form id="myform">
-            <div class="pagePanier">
-              <div class="row ">
-              <div class="col-lg-10" id="container-form">
-                <h2> Formulaire de commande </h2>
-                <form  method="POST" id="contact" autocomplete="on">
-                  <div class="form-group row">
-                    <label for="firstName" class="col-sm-2 col-form-label">Prenom</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder="dupont" required pattern="[a-z]{2,30}">
-                      
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="lastName" class="col-sm-2 col-form-label">Nom</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder="jean" required pattern="[a-zA-ZÀ-ÿ]{2,30}">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="address" class="col-sm-2 col-form-label">Addresse</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" required pattern= "[0-9]{1,3}(?:(?:[,. ]?){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)*">
-                      
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="city" class="col-sm-2 col-form-label">Ville</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="city" class="form-control" id="city" placeholder="paris" required pattern="[a-z]{2,30}">
-                      
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-8">
-                      <input type="email"  name="email" class="form-control" id="email" placeholder="toto@exemple.com" required pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})">
-                
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-sm-10">
-                      <button type="submit" value="ok" class="btn btn-info" id="submitorder">Envoyez votre commande </button>
-                    </div>
-                  </div>
-                </form>
+              <h3>Informations</h3>
+              <div class="input_field">
+                  <input type="text" placeholder="Prénom*" id="firstname">
               </div>
-            </div>
-            </div>   
-        </section> 
+              <div class="input_field">
+                  <input type="text" placeholder="Nom*" id="lastname">
+              </div>
+              <div class="input_field">
+                  <input type="text" placeholder="Adresse*" id="address">
+              </div>
+              <div class="input_field">
+                  <input type="text" placeholder="Ville*" id="city">
+              </div>
+              <div class="input_field">
+                  <input type="text" placeholder="Mail*" id="email">
+              </div>
+              <button id="btnsend" type="submit" class="btn btn-info btn-xs">Envoyer</button>
+              <div id="error_message"></div>
+          </form>
+        </section>
             <!--FOOTER-->
         <footer class="footer">
-              <div class="container">
-                  <div class="row">       
-                      <div class="col-md-12">
-                          <ul class="list-inline text-center">
-                              <li class="list-inline-item"><a>© 2021 Orinoco</a></li>
-                              <li class="list-inline-item">&middot;</li>
-                              <li class="list-inline-item"><a>Oricaméras</a></li>
-                              <li class="list-inline-item">&middot;</li>
-                              <li class="list-inline-item"><a href="apropos.html">A propos</a></li>
-                          </ul>
-                      </div>
-                  </div>    
+              <div class="container-fluid">
+                  <div class="col">
+                      <ul class="list-inline text-center">
+                          <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
+                          <li class="list-inline-item">&middot;</li>
+                          <li class="list-inline-item"><a href="apropos.html">Oricaméras</a></li>
+                          <li class="list-inline-item">&middot;</li>
+                          <li class="list-inline-item"><a href="mailto:orinoco_cameras@gmail.com">Contactez-nous</a></li>
+                      </ul>
+                  </div>
               </div>
         </footer>
           <script src="/frontend/js/panier.js"asynch></script>

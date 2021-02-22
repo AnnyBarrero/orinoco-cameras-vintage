@@ -4,52 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco nos caméras vintage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="sass/style.css">
-    
 </head>
     <body>
         <!--Header avec panier-->
-        <header>
+        <header class="fun-couleurs">
             <a class="backindex" href="index.html">
-                <i class="fas fa-shopping-cart"></i>
-                <h1>Orinoco</h1>
+                <img class="responsive" src="/frontend/images/LogoOrinoco.jpg" alt="">
             </a>
             <a class="monpanier" href="panier.html">
                 <i class="fas fa-shopping-basket"></i>
-                <p>Mon panier</p>
             </a> 
         </header>
         <!--Fin de Header avec panier-->
-        <!--Nom de la catégorie: ACCUEIL-->
-        <section class="title-camera">
-            <h2 class="text-center">Oricaméras</h2>
-            <p>
-                Faites votre shopping parmi nos différents produits et faites vous livrer directement dans
-                votre boîte aux lettres.<br />Bonne visite sur Orinoco !
-            </p>
-        </section>  
-        <!--Fin du Nom de la catégorie-->
-        <!--Produits-->
+        <!--Ici commence le carousel avec la description de la HOMEPAGE-->
         <div class="container">
-            <div id="produits">
-            </div>
-        </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="col">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="apropos.html">Oricaméras</a></li>
-                        </ul>
+            <div class="row section-slide">
+                <div id="carouselIndex" class="col-8 col-md-6 slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselIndex" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselIndex" data-slide-to="1"></li>
+                        <li data-target="#carouselIndex" data-slide-to="2"></li>
+                        <li data-target="#carouselIndex" data-slide-to="3"></li>
+                        <li data-target="#carouselIndex" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="./images/1.jpg" alt="First slide">
+                        </div> 
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="./images/2.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="./images/3.jpg" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="./images/4.jpg" alt="Fourth slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="./images/5.jpg" alt="Fifth slide">
+                        </div>
                     </div>
                 </div>
-            </footer>
-            
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h1 class="title-homepage">Toutes nos caméras vintage</h1>
+                    <p class="paragraphe-homepage">Faites votre shopping parmi nos différents produits et faites vous
+                        livrer directement dans votre boîte aux lettres.</p>
+                </div>
+            </div>    
+                <!--Produits-->
+            <div id="produits">
+                    <!--Affichage des produits a completer avec javascript-->
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="apropos.html">Oricaméras</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="mailto:orinoco_cameras@gmail.com">Contactez-nous</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/accueil.js"asynch></script>
     
     </body>

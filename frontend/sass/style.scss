@@ -1,6 +1,6 @@
 @import "font";
 
-$clrbckhd: rgb(120, 205, 233); /*couleur background header*/
+$clrbckhd: #FFF7EF; /*couleur background header et footer*/
 $clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
 $clrborderpanier: #d3d3d3; /*couleur bordures panier*/
 $clrprimaire: rgb(73, 170, 63); /*vert bouton et background récap commande*/
@@ -8,6 +8,7 @@ $clrbckg: white; /*background et couleur blanche*/
 $clrimportant: rgb(200, 17, 128); /*messages important*/
 $clrbutton: rgb(99, 52, 78);
 $clrtitles: #17A2B8; /*pour le titres et prix*/
+$clrfontAndicons: #4D647E;
 a{color: black; text-decoration: none;}
 a:hover 
 { text-decoration: none; }
@@ -45,8 +46,9 @@ header{
     justify-content: space-between;
     padding-top: 15px;
     padding-bottom: 15px;
-    
+    color: $clrfontAndicons;
     background-color: $clrbckhd;
+    font-family: 'Karla', sans-serif;
     .backindex{
         display: flex;
         flex-direction: row;
@@ -54,30 +56,21 @@ header{
         flex-grow: 2;
         i{
             font-size: 2em;
-            margin-right: 2%;
-            @include degradeOrinoco;
-            
-        }
-        h1{
-            font-size: 2em;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            color: black;
+            margin-right: 2%;  
         }
     }    
-
 }
+
 /*TITLE ORICAMERAS*/
 .title-camera{
+    font-family: 'Karla', sans-serif;
     h2{
-            font-family: 'Playfair Display', serif;
             font-size: 2em;
             margin: 2% auto;
             color: black;
             text-shadow: 3px 3px 3px $clrbckhd;
     }
     p{
-        font-family: 'Playfair Display', serif;
         text-align: center;
         font-size: 1.3em;
     }
@@ -89,7 +82,7 @@ footer{
     color: black;
     background-color: $clrbckhd;
     font-size: 1em;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Karla', sans-serif;
 
   
 }
@@ -100,11 +93,12 @@ footer{
         flex-direction: column;
         margin: auto 3%;
         color: black;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Karla', sans-serif;
         i{
             font-size: 2em;
             margin: auto;
-            @include degradeOrinoco;
+            color: #4D647E;
+           // @include degradeOrinoco;
         }
         p{
             font-size: 1em;
@@ -114,26 +108,59 @@ footer{
 
 
 
-/*CARD Produits */
+/**************************************************************************************/
+/**********************************CARD HOME PAGE CAMERAS AFFICHAGE****************************/
+/**************************************************************************************/
+
+/*CAROUSEL/HOME PAGE, AFFICHAGE*/
+.section-slide{
+    padding-top: 25px;
+    font-family: 'Karla', sans-serif;
+
+    .title-homepage{ 
+        margin-top: 10%;
+        font-size: 2em;
+        line-height: 35px;
+        font-weight: 700;
+    }
+    .paragraphe-homepage{
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+
+
+}
+#carouselIndex{
+    margin: 0 auto;
+}
 
 #produits{
     margin-bottom: 40px;
     padding-bottom: 20px;
     margin-top: 40px;
     padding-top: 20px;
-
+    font-family: 'Karla', sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    font-family: 'Playfair Display', serif;
-}
 
-button a{
-    color: white;
-} 
-a:hover{
-    text-decoration: none;
-   
+    .all-buttons{
+        border: 2px solid #BEAF8C;
+    padding: 10px 15px;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 13px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    color: black;
+    }
+    .all-buttons:hover{
+        background-color: #BEAF8C;
+    }
+    
 }
 
 .card-header{
@@ -141,7 +168,6 @@ a:hover{
     justify-content: space-around;
     color: $clrtitles;
     font-weight: bolder;
-    
 }
 
 
@@ -213,11 +239,11 @@ a:hover{
 .container-produit-camera{
     padding-bottom: 40px;
     margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
 }
 #descriptionproduit{
     padding-top: 50px;
     margin-top: 50px;
-    font-family: 'Playfair Display', serif;
 p{
     font-size: 1.2em;
     color: black;
@@ -247,6 +273,10 @@ p{
         font-weight: bold;
         color: black;
     }
+}
+#total-price{
+    font-weight: bold;
+    font-size: 1.2em;
 }
 .prixPanier{
     text-align: center;
@@ -282,161 +312,41 @@ p{
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
-
-.products-container{
-    max-width: 80vw;
-    justify-content: space-around;
-    margin: 0 auto;
-    margin-top: 3%;
+.containerPagePanier{
     font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    h2{
-        font-size: 3em;
-        font-weight: bold;
-        margin-bottom: 5%;
-    }
-    .products-header{
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        text-align: center;
-        border-bottom: 3px solid $clrborderpanier;
-        .products-title{
-            width: 33%;
-        }
-        .products-option{
-            width: 17%;
-        }
-        .products-price{
-            width: 20%;
-        }
-        .products-quantity{
-            width: 10%;
-        }
-        .products-total{
-            width: 20%;
-        }
-    }
-    .products{
-        .product{
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            padding: 1% 0;
-            border-bottom: 1px solid $clrborderpanier;
-            font-size: 1.2em;
-            white-space: nowrap;
-            .product-name{
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                width: 33%;
-                ion-icon{
-                    font-size: 1.5em;
-                    color: $clrtitles;
-                    cursor: pointer;
-                    &:active{
-                        scale: 0.8;
-                    }
-                }
-                img{
-                    width: 33%;
-                }
-                span{
-                    width: 33%;
-                    text-align: center;
-                }
-            }
-            .product-option{
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                width: 17%;
-            }
-            .product-price{
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                width: 20%;
-            }
-            .product-quantity{
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                width: 10%;
-                ion-icon{
-                    flex-grow: 2;
-                    font-size: 1.5em;
-                    color: $clrtitles;
-                    cursor: pointer;
-                    &:active{
-                        scale: 0.8; 
-                    }
-                }
-                span{
-                    flex-grow: 1;
-                    text-align: center;
-                }
-            }
-            .product-total{
-                width: 20%;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-            }
-        }
-    }
-    .no-products{
-        margin-bottom: 5vw;
-        p{
-            font-size: 2em;
-            text-align: center;
-            margin-top: 3%;
-            a{
-                text-decoration: underline;
-                color: $clrtitles;
-            }
-        }
-    }
-    .total-basket{
-        text-align: center;
-        font-size: 2vw;
-        margin: 2%;
-        display: flex;
-        justify-content: space-between;
-        border: 1px solid black;
-        h5{
-            margin-left: 10%;
-        }
-        h6{
-            margin-right: 10%;
-        }
-    }
-    #btnorder{
+}
+#container-panier2{
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+.tailleImage{
+    width: 100px;
+	height: 100px;
+}
+#basket-content{
+    font-family: 'EB Garamond', serif;
+    font-weight: bold; 
+    font-size: 1.2em; 
+}
+
+.no-products{
+    margin: auto;
+    font-size: 1.3em;
+}
+#btnorder{
+        font-family: 'Playfair Display', serif;
         display: block;
         margin: 5% auto;
         font-size: 1.2em;
         height: 54px;
-        background: $clrprimaire;
-        color: $clrbckg;
         font-weight: bold;
         letter-spacing: 0.05em;
         text-decoration: none;
-        border: 1px solid $clrborderbutton;
-        text-shadow: 1px 2px 0 $clrborderbutton;
-        cursor: pointer;
-        white-space: nowrap;
-        &:hover{
-            border: 0px solid $clrborderbutton;
-        }
-        &:active{
-            box-shadow: 1px 1px 1px 5px $clrbckg inset;  
-        }
-    }
 }
 
-
-
+.total-Panier{
+    font-weight: bold;
+}
  .pagePanier{
     display: flex;
     flex-direction: column;
@@ -472,7 +382,6 @@ p{
    padding-left: 10px;
     }
     
-   
 }
 .liDisp ul{
    list-style: none;
@@ -485,6 +394,42 @@ p{
    border: 2px solid #6C757D;
 }
 
+// formulaire
+#formulaire{
+font-family: 'Playfair Display', serif;
+display: none;
+width: 80vw;
+height: auto;
+box-shadow: black 1px 1px 15px;
+margin: 2% auto;
+padding: 3%;
+background: rgb(255, 255, 255);
+border-radius: 5px;
+h3 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: black 1px 1px 3px;
+    padding: 2%;
+
+}
+#btnsend{
+    color: #fff;
+    border-color: #17a2b8;
+}
+}
+#myform [type="text"]{
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(224, 224, 224);
+    border-image: initial;
+    padding: 10px;
+    .input_field {
+        margin-bottom: 10px;
+        box-sizing: inherit;
+    }
+}
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PANIER******************************/
 /**************************************************************************************/

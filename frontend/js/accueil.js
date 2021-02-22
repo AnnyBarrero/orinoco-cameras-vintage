@@ -28,24 +28,24 @@ function afficherCameras(cams) {
  // creation de la fonction pour afficher une camera
 function afficherCamera(camera){
     const cameraElement = document.createElement('div');
-    cameraElement.setAttribute("class","col-lg-5 col-md-6 mb-4 item-card")
+    cameraElement.setAttribute("class","col-lg-5 col-md-6 mb-4 item-card border-0")
     cameraElement.innerHTML =
     `
-        <div class="card text-center"> 
-            <div class="card-header">
-                <h2> ${camera.name}</h2>
-                <p> ${camera.price/100} € </p>
+    <a href="produit.html?id=${camera._id}">
+        <div class="card text-center border-0"> 
+            <div class="card-header border-0">
+               <h2> ${camera.name}</h2>
+               <p> ${camera.price/100}€</p>
             </div>
-            <div class="card-body">
-                <img class="card-img-top" src="${camera.imageUrl}" alt="">
-                <p class="card-text">${camera.description} </p> 
+            <div class="card-body border-0">
+                <img class="card-img-top border-0" src="${camera.imageUrl}" alt="">
+                <p class="card-text border-0">${camera.description} </p> 
             </div>
-            <div class="card-footer text-muted">
-                <a href="produit.html?id=${camera._id}"> 
-                 <button type="button" class="btn btn-info btn-xs btn-block" > Sélectionnez </button>
-                 </a>
+            <div class="card-footer text-muted border-0">
+                <button type="button" class="btn btn-xs btn-block all-buttons" > Voir Caméra </button>
             </div> 
         </div>
+    </a>    
     `;
     camerasOrinoco.appendChild(cameraElement);
 }

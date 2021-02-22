@@ -25,7 +25,7 @@ function setPanierValue (newCam) {
         get totalPrice (){
             return this.camPrice * this.camQuantite;
         }
-    }
+    };
 }
 
 const appelDeApi = async function () {
