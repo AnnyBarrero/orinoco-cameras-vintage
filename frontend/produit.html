@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Orinoco nos caméras vintage</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">   
         <link rel="stylesheet" href="sass/style.css">
@@ -14,43 +14,80 @@
         <!--Header avec panier-->
         <header>
             <a class="backindex" href="index.html">
-                <i class="fas fa-shopping-cart"></i>
-                <h1>Orinoco</h1>
+                <img src="images/oricameras-logo.jpg" alt="">
             </a>
-            <a class="monpanier" href="panier.html">
-                <i class="fas fa-shopping-basket"></i>
-                <p>Mon panier</p>
-            </a> 
+            <nav class="navbar">
+                <ul class="list-inline">
+                <li class="list-inline-item mail-contact">
+                    <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
+                </li>
+                <li class="list-inline-item panier-contents">
+                    <a href="panier.html">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>    
+                </li>
+                </ul> 
+            </nav>   
         </header>
         <!--Fin de Header avec panier-->
         <!--Title page produit-->
-        <section class="title-camera">
-            <h2 class="text-center">Oricaméras, votre produit...</h2>
-        </section> 
+        <div class="container paragraphe-produit">
+        <div class="col-12 col-md-6 col-lg-12">
+            <h2 class="title-homepage">Toutes nos caméras vintage</h2>
+            <p class="paragraphe-homepage">Personnalisez votre produit </p>
+        </div> 
+        </div>
         <!--Produits-->
         <div class="container container-produit-camera">
             <div id="descriptionproduit">
                 <!--Affichage de produit avec JS-->
             </div> 
             <!--button ajoute au panier-->
-            <div class="col-lg-6 col-md-4 col-sm-3  float-right card ">
-                <button id="btnAddCart" type="button" class="btn btn-info btn-s add-to-cart ">Ajouter au panier</button>
+            <div class="col-lg-4 col-md-4 col-sm-5  float-right card border-0 button-add-cart">
+                <button id="btnAddCart" type="button" class="btn btn-s add-to-cart all-buttons">Ajouter au panier</button>
             </div>
         </div>   
         <!-- FOOTER -->
-        <footer class="footer">
+        <div class="fin-page fin-paddingplus">
             <div class="container">
-                <div class="row">       
-                    <div class="col-md-12">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item"><a>© 2020 Orinoco</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="apropos.html">Oricaméras</a></li>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                            <span class="titles-footer">Oricameras</span>
+                        <ul class="avant-footer-list">
+                            <li>A propos de nous</li>
+                            <li>Mentions légales</li>
                         </ul>
                     </div>
-                </div>    
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                         <span class="titles-footer retrouvez-nous">Retrouvez-nous</span>
+                        <ul class="avant-footer-list">
+                            <li>Nos réseaux sociaux</li>
+                        </ul>
+                        <div class="footer-reseaux col-lg-6">
+                            <ul>
+                                <li><i class="fab fa-facebook-square"></i></li>
+                                <li><i class="fab fa-twitter-square"></i></li>
+                            </ul> 
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <span class="titles-footer">Orinoco produits</span>
+                        <ul class="avant-footer-list">
+                            <li>Ours en peluche</li>
+                            <li>Meubles en chêne</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </footer> 
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a>© 2021 Oricameras, caméras vintage.</a></li>
+                   </div>
+            </div>
+        </footer>
         <script src="/frontend/js/produit.js"></script>
     </body>
 </html>

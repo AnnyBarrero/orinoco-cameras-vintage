@@ -75,18 +75,18 @@ const appelDeApi = async function () {
 //mise en place de l'HTML
     function afficherUnItem(newCam) {
         let cameraCart = document.createElement("div");
-        cameraCart.setAttribute("class","flex-row flex-wrap card")
+        cameraCart.setAttribute("class","flex-row flex-wrap border-0 card")
         cameraCart.innerHTML = `
-        <div class=" col-lg-6 col-md-12  float-start card">
+        <div class=" col-lg-6 col-md-12  float-start card border-0">
             <img id="imageUrl" src="${newCam.imageUrl}" alt="">        
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12  float-end card text-center">
-            <div class="card-header">
-              <h2 class="card-title" id="titre">${newCam.name}</h2>
-              <p class="card-text" id="prix"> ${newCam.price/100} €</p> 
+        <div class="col-lg-6 col-md-12 col-sm-12  float-end text-center bg-transparent border-0">
+            <div class="card-header border-0 bg-transparent">
+              <h2 class="card-title bg-transparent name-couleurs" id="titre">${newCam.name}</h2>
+              <p class="card-text bg-transparent prix-coleurs" id="prix"> ${newCam.price/100} €</p> 
             </div>
-            <div class="card-body">
-              <p class="card-text" id="description">
+            <div class="card-body border-0">
+              <p class="card-text border-0" id="description">
                     ${newCam.description}
                 </p> 
                 <label for="quantité">Quantité (<em> Dans la limite des cameras </em>) </label>

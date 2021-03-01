@@ -125,92 +125,108 @@ a:visited {
 
 /*HEADER ET FOOTER*/
 html {
+  font-family: 'Karla', sans-serif;
   position: relative;
   min-height: 100%;
 }
 
 header {
+  top: 0;
+  z-index: 9999;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #4D647E;
-  background-color: #FFF7EF;
+  background-color: #DDC3C4;
+  color: black;
   font-family: 'Karla', sans-serif;
 }
 
-header .backindex {
+.navbar {
+  font-weight: 700;
+  color: black;
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar ul .fa-shopping-cart {
+  font-size: 1.2em;
+}
+
+/*********************************************************************/
+/**************************FOOTER************************************/
+/*******************************************************************/
+.fin-page {
+  font-family: 'Karla', sans-serif;
+  margin-top: 50px;
+  color: #000;
+  padding: 30px 0 20px;
+}
+
+.fin-page .titles-footer {
+  color: #425264;
+  display: inline-block;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.fin-page .avant-footer-list {
+  font-weight: 600;
+}
+
+.fin-page .retrouvez-nous {
+  padding-top: 15px;
+}
+
+.fin-page .footer-reseaux ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin: auto 3%;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  list-style: none;
+  padding-left: 0;
 }
 
-header .backindex i {
-  font-size: 2em;
-  margin-right: 2%;
+.fin-page .footer-reseaux ul li {
+  margin-left: 14px;
 }
 
-/*TITLE ORICAMERAS*/
-.title-camera {
-  font-family: 'Karla', sans-serif;
+.fin-page .footer-reseaux ul li .fa-facebook-square, .fin-page .footer-reseaux ul li .fa-twitter-square {
+  padding: 5px 8px;
+  border-radius: 50%;
+  color: #425264;
+  font-size: 1.5em;
+  border: 1px solid #000;
 }
 
-.title-camera h2 {
-  font-size: 2em;
-  margin: 2% auto;
-  color: black;
-  text-shadow: 3px 3px 3px #FFF7EF;
-}
-
-.title-camera p {
-  text-align: center;
-  font-size: 1.3em;
+.fin-paddingplus {
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 footer {
-  bottom: 0;
   width: 100%;
-  height: 70px;
+  margin-top: 30px;
+  padding: 20px 0;
   color: black;
-  background-color: #FFF7EF;
+  background-color: #DDC3C4;
   font-size: 1em;
+  font-weight: 700;
   font-family: 'Karla', sans-serif;
-}
-
-/*HEADER PANIER*/
-.monpanier {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: auto 3%;
-  color: black;
-  font-family: 'Karla', sans-serif;
-}
-
-.monpanier i {
-  font-size: 2em;
-  margin: auto;
-  color: #4D647E;
-}
-
-.monpanier p {
-  font-size: 1em;
+  text-align: center;
 }
 
 /**************************************************************************************/
@@ -222,20 +238,40 @@ footer {
   font-family: 'Karla', sans-serif;
 }
 
-.section-slide .title-homepage {
+.title-homepage {
+  color: #4E6172;
   margin-top: 10%;
   font-size: 2em;
   line-height: 35px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.section-slide .paragraphe-homepage {
+.paragraphe-homepage {
   font-weight: 500;
   font-size: 1.3em;
 }
 
 #carouselIndex {
   margin: 0 auto;
+}
+
+.all-buttons {
+  border: 2px solid #BEAF8C;
+  padding: 10px 15px;
+  font-weight: 700;
+  border-radius: 25px;
+  font-size: 13px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.all-buttons:hover {
+  background-color: #BEAF8C;
 }
 
 #produits {
@@ -253,23 +289,14 @@ footer {
       justify-content: space-around;
 }
 
-#produits .all-buttons {
-  border: 2px solid #BEAF8C;
-  padding: 10px 15px;
-  font-weight: 700;
-  border-radius: 25px;
-  font-size: 13px;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background-color: transparent;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  color: black;
+.prix-coleurs, .name-couleurs {
+  font-weight: bolder;
+  color: #425264;
 }
 
-#produits .all-buttons:hover {
-  background-color: #BEAF8C;
+.description-lorem {
+  color: black;
+  font-weight: 800;
 }
 
 .card-header {
@@ -278,52 +305,23 @@ footer {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  color: #17A2B8;
-  font-weight: bolder;
 }
 
 /**************************************************************************************/
 /**********************************RESPONSIVE HEADER, FOOTER, MON PANIER, TITLE ORICAMERAS****************************/
 /**************************************************************************************/
-@media screen and (max-width: 700px) {
-  /*MON PANIER*/
-  .monpanier p {
-    display: none;
-  }
-  .title-camera h2 {
+@media screen and (min-width: 700px) {
+  header .navbar {
     font-size: 1.3em;
+    font-weight: 900;
   }
-  .title-camera p {
-    font-size: 1.2em;
+  header .navbar i {
+    font-size: 1.3em;
   }
 }
 
 @media screen and (max-width: 451px) {
-  header {
-    /*MON PANIER*/
-  }
-  header .backindex i {
-    font-size: 1em;
-  }
-  header .backindex h1 {
-    font-size: 1em;
-  }
-  header .monpanier i {
-    font-size: 1em;
-  }
-  header .monpanier p {
-    font-size: 1em;
-  }
-  .title-camera h2 {
-    font-size: 1.3em;
-  }
-  .title-camera p {
-    font-size: 1em;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .title-camera p {
+  .mail-contact {
     display: none;
   }
 }
@@ -331,18 +329,48 @@ footer {
 /**************************************************************************************/
 /********************************** PRODUIT*********************************************/
 /**************************************************************************************/
+.paragraphe-produit {
+  text-align: center;
+  padding-top: 30px;
+  font-family: 'Karla', sans-serif;
+}
+
+.paragraphe-produit .title-homepage {
+  margin-top: 10%;
+  font-size: 2em;
+  line-height: 35px;
+  font-weight: 700;
+}
+
+.paragraphe-produit .paragraphe-homepage {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
 .container-produit-camera {
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   margin-bottom: 40px;
-  font-family: 'Playfair Display', serif;
+}
+
+.container-produit-camera #description {
+  font-weight: 500;
+}
+
+.container-produit-camera label {
+  font-weight: 600;
+}
+
+.container-produit-camera .lentilles-choix {
+  font-weight: 600;
 }
 
 #descriptionproduit {
+  font-family: 'Karla', sans-serif;
   padding-top: 50px;
   margin-top: 50px;
 }
 
-#descriptionproduit p {
+#descriptionproduit #description {
   font-size: 1.2em;
   color: black;
 }
@@ -356,7 +384,7 @@ footer {
   margin-right: 50px;
   margin-left: 50px;
   margin-bottom: 50px;
-  border: #FFF7EF 1px solid;
+  border: #DDC3C4 1px solid;
 }
 
 .articlePanier {
@@ -369,27 +397,10 @@ footer {
           flex-direction: column;
 }
 
-.titrePanier {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.titrePanier #totalPricePanier {
-  font-weight: bold;
-  color: black;
-}
-
 #total-price {
   font-weight: bold;
   font-size: 1.2em;
-}
-
-.prixPanier {
-  text-align: center;
+  color: #425264;
 }
 
 #container-button {
@@ -407,11 +418,18 @@ footer {
   #descriptionproduit {
     padding-top: 20px;
     margin-top: 20px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Karla', sans-serif;
   }
-  #descriptionproduit p {
+  #descriptionproduit #description {
     font-size: 1em;
     color: black;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .button-add-cart {
+    margin-right: 80px;
+    padding-right: 50px;
   }
 }
 
@@ -419,7 +437,20 @@ footer {
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
 .containerPagePanier {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Karla', sans-serif;
+}
+
+.containerPagePanier th {
+  text-transform: uppercase;
+}
+
+.containerPagePanier .table-style {
+  background-color: #EEECD6;
+}
+
+.paragraphe-panier {
+  text-align: center;
+  font-family: 'Karla', sans-serif;
 }
 
 #container-panier2 {
@@ -433,7 +464,7 @@ footer {
 }
 
 #basket-content {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Karla', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -444,10 +475,9 @@ footer {
 }
 
 #btnorder {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Karla', sans-serif;
   display: block;
   margin: 5% auto;
-  font-size: 1.2em;
   height: 54px;
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -455,6 +485,7 @@ footer {
 }
 
 .total-Panier {
+  color: #425264;
   font-weight: bold;
 }
 
@@ -472,7 +503,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Karla', sans-serif;
 }
 
 .pagePanier h2 {
@@ -519,7 +550,7 @@ footer {
 }
 
 #formulaire {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Karla', sans-serif;
   display: none;
   width: 80vw;
   height: auto;
@@ -540,8 +571,7 @@ footer {
 }
 
 #formulaire #btnsend {
-  color: #fff;
-  border-color: #17a2b8;
+  color: black;
 }
 
 #myform [type="text"] {
@@ -561,24 +591,28 @@ footer {
 }
 
 /**************************************************************************************/
-/**********************************RESPONSIVE PAGE PANIER******************************/
+/**********************************PAGE CONFIRMATION******************************/
 /**************************************************************************************/
+.paragraphe-confirmation {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+}
+
 /**********************************PAGE A PROPOS******************************/
 .title-camera-apropos {
   padding-bottom: 60px;
   margin-bottom: 60px;
+  font-family: 'Karla', sans-serif;
 }
 
 .title-camera-apropos h2 {
-  font-family: 'Playfair Display', serif;
   font-size: 2em;
   margin: 2% auto;
   color: black;
-  text-shadow: 3px 3px 3px #FFF7EF;
+  text-shadow: 3px 3px 3px #DDC3C4;
 }
 
 .title-camera-apropos p {
-  font-family: 'Playfair Display', serif;
   text-align: center;
   font-size: 1.3em;
 }

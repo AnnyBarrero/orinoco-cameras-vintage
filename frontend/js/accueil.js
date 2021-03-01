@@ -33,15 +33,15 @@ function afficherCamera(camera){
     `
     <a href="produit.html?id=${camera._id}">
         <div class="card text-center border-0"> 
-            <div class="card-header border-0">
-               <h2> ${camera.name}</h2>
-               <p> ${camera.price/100}€</p>
+            <div class="card-header bg-transparent border-0">
+               <h2 class="name-couleurs"> ${camera.name}</h2>
+               <p class="prix-coleurs"> ${camera.price/100}€</p>
             </div>
             <div class="card-body border-0">
                 <img class="card-img-top border-0" src="${camera.imageUrl}" alt="">
-                <p class="card-text border-0">${camera.description} </p> 
+                <p class="card-text border-0 description-lorem">${camera.description} </p> 
             </div>
-            <div class="card-footer text-muted border-0">
+            <div class="card-footer bg-transparent border-0">
                 <button type="button" class="btn btn-xs btn-block all-buttons" > Voir Caméra </button>
             </div> 
         </div>

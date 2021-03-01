@@ -1,6 +1,6 @@
 @import "font";
 
-$clrbckhd: #FFF7EF; /*couleur background header et footer*/
+$clrbckhd: #DDC3C4; /*couleur background header et footer*/
 $clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
 $clrborderpanier: #d3d3d3; /*couleur bordures panier*/
 $clrprimaire: rgb(73, 170, 63); /*vert bouton et background récap commande*/
@@ -37,74 +37,98 @@ a:visited {text-decoration: none;}
 }
 /*HEADER ET FOOTER*/
 html {
+    
+    font-family: 'Karla', sans-serif;
     position: relative;
     min-height: 100%;
 }
 
 header{
+    top: 0;
+    z-index: 9999;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: $clrfontAndicons;
+    
     background-color: $clrbckhd;
+    color: black;
     font-family: 'Karla', sans-serif;
-    .backindex{
-        display: flex;
-        flex-direction: row;
-        margin: auto 3%;
-        flex-grow: 2;
-        i{
-            font-size: 2em;
-            margin-right: 2%;  
-        }
-    }    
+    
+    }  
+    .navbar{
+        font-weight: 700;
+        color: black;
+        ul{
+         list-style: none;  
+        
+        .fa-shopping-cart{
+            font-size: 1.2em;
+            // @include degradeOrinoco;
+        } 
+        
+    }
+    }  
+/*********************************************************************/   
+/**************************FOOTER************************************/
+/*******************************************************************/ 
+.fin-page{
+    font-family: 'Karla', sans-serif;
+    margin-top: 50px;
+    color: #000;
+    padding: 30px 0 20px;  
+    .titles-footer{
+    color:#425264;
+    display: inline-block;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+}
+    .avant-footer-list{
+        font-weight: 600;
+    }
+    
+    .retrouvez-nous{
+        padding-top: 15px
+    }
+    .footer-reseaux ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    list-style: none;
+    padding-left: 0;
+    }
+    .footer-reseaux ul li{
+        margin-left: 14px;
+    
+    .fa-facebook-square, .fa-twitter-square{
+    padding: 5px 8px;
+    border-radius: 50%;
+    color: #425264;
+    font-size: 1.5em;
+    border: 1px solid #000;
+    }
+    
+}
+}
+.fin-paddingplus{
+ padding-bottom: 50px;
+ padding-top: 50px;
 }
 
-/*TITLE ORICAMERAS*/
-.title-camera{
-    font-family: 'Karla', sans-serif;
-    h2{
-            font-size: 2em;
-            margin: 2% auto;
-            color: black;
-            text-shadow: 3px 3px 3px $clrbckhd;
-    }
-    p{
-        text-align: center;
-        font-size: 1.3em;
-    }
-}
 footer{
-    bottom: 0;
     width: 100%;
-    height: 70px;
+    margin-top: 30px;
+    padding: 20px 0;
     color: black;
     background-color: $clrbckhd;
     font-size: 1em;
-    font-family: 'Karla', sans-serif;
-
-  
+    font-weight: 700;
+    font-family: 'Karla', sans-serif; 
+    text-align: center; 
 }
 
-    /*HEADER PANIER*/
-    .monpanier{
-        display: flex;
-        flex-direction: column;
-        margin: auto 3%;
-        color: black;
-        font-family: 'Karla', sans-serif;
-        i{
-            font-size: 2em;
-            margin: auto;
-            color: #4D647E;
-           // @include degradeOrinoco;
-        }
-        p{
-            font-size: 1em;
-        }
-        
-    }
 
 
 
@@ -115,6 +139,100 @@ footer{
 /*CAROUSEL/HOME PAGE, AFFICHAGE*/
 .section-slide{
     padding-top: 25px;
+    font-family: 'Karla', sans-serif;
+}
+    .title-homepage{
+        color: #4E6172; 
+        margin-top: 10%;
+        font-size: 2em;
+        line-height: 35px;
+        font-weight: 800;
+    }
+    .paragraphe-homepage{
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+
+
+
+#carouselIndex{
+    margin: 0 auto;
+}
+
+.all-buttons{
+border: 2px solid #BEAF8C;
+padding: 10px 15px;
+font-weight: 700;
+border-radius: 25px;
+font-size: 13px;
+line-height: 1;
+text-transform: uppercase;
+letter-spacing: 1px;
+background-color: transparent;
+transition: background-color 0.3s;
+color: black;
+}
+.all-buttons:hover{
+    background-color: #BEAF8C;
+}
+#produits{
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-family: 'Karla', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}   
+    .prix-coleurs, .name-couleurs {
+        font-weight: bolder;
+        color: #425264;
+    }
+
+    .description-lorem{
+        color: black;
+        font-weight: 800;
+    }
+
+
+.card-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+/**************************************************************************************/
+/**********************************RESPONSIVE HEADER, FOOTER, MON PANIER, TITLE ORICAMERAS****************************/
+/**************************************************************************************/
+
+@media screen and (min-width: 700px){
+   
+    header .navbar{
+        font-size: 1.3em;
+        font-weight: 900;
+        i{
+            font-size: 1.3em;
+        }
+    }
+   
+}
+
+
+
+@media screen and (max-width: 451px){
+    .mail-contact{
+        display: none;
+    }
+   
+}
+
+
+/**************************************************************************************/
+/********************************** PRODUIT*********************************************/
+/**************************************************************************************/
+.paragraphe-produit{
+    text-align: center;
+    padding-top: 30px;
     font-family: 'Karla', sans-serif;
 
     .title-homepage{ 
@@ -128,126 +246,32 @@ footer{
         font-size: 1.3em;
     }
 
-
-}
-#carouselIndex{
-    margin: 0 auto;
-}
-
-#produits{
+}    
+.container-produit-camera{
+    padding-bottom: 60px;
     margin-bottom: 40px;
-    padding-bottom: 20px;
-    margin-top: 40px;
-    padding-top: 20px;
-    font-family: 'Karla', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 
-    .all-buttons{
-        border: 2px solid #BEAF8C;
-    padding: 10px 15px;
-    font-weight: 700;
-    border-radius: 25px;
-    font-size: 13px;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: transparent;
-    transition: background-color 0.3s;
-    color: black;
+   
+    #description{
+        font-weight: 500;
     }
-    .all-buttons:hover{
-        background-color: #BEAF8C;
+    label{
+        font-weight: 600;
+    }
+    .lentilles-choix{
+        font-weight: 600;
     }
     
 }
 
-.card-header{
-    display: flex;
-    justify-content: space-around;
-    color: $clrtitles;
-    font-weight: bolder;
-}
-
-
-/**************************************************************************************/
-/**********************************RESPONSIVE HEADER, FOOTER, MON PANIER, TITLE ORICAMERAS****************************/
-/**************************************************************************************/
-
-@media screen and (max-width: 700px){
-   
-    /*MON PANIER*/
-    .monpanier{
-        p{
-            display: none;
-        }
-    }
-
-    .title-camera{
-        h2{
-            font-size: 1.3em;
-        }
-        p{
-            font-size: 1.2em;
-        }
-        
-    }
-}
-
-@media screen and (max-width: 451px){
-    header{
-        .backindex{
-            i{
-                font-size: 1em;
-            }
-            h1{
-                font-size: 1em;
-            }
-        }
-     /*MON PANIER*/
-    .monpanier{
-        i{
-            font-size: 1em;
-        }
-        p{
-            font-size: 1em;
-        }
-    } 
-    }
-    .title-camera{
-        h2{
-            font-size: 1.3em;
-        }
-        p{
-            font-size: 1em;
-        }
-        
-    }
-
-}
-@media screen and (max-width: 450px){
-    .title-camera p{
-        display: none;
-    }
-}
-
-
-/**************************************************************************************/
-/********************************** PRODUIT*********************************************/
-/**************************************************************************************/
-.container-produit-camera{
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-    font-family: 'Playfair Display', serif;
-}
 #descriptionproduit{
+    font-family: 'Karla', sans-serif;
     padding-top: 50px;
     margin-top: 50px;
-p{
+    #description{
     font-size: 1.2em;
     color: black;
-}    
+    }    
 }
 .cam-options{
     line-height: 2.3em;
@@ -266,21 +290,13 @@ p{
     display: flex;
     flex-direction: column;
 }
-.titrePanier{
-    display: flex;
-    justify-content: space-between;
-    #totalPricePanier{
-        font-weight: bold;
-        color: black;
-    }
-}
+
 #total-price{
     font-weight: bold;
     font-size: 1.2em;
+    color: #425264;
 }
-.prixPanier{
-    text-align: center;
-}
+
 #container-button{
     text-align: center; 
     margin-bottom: 50px;
@@ -300,20 +316,35 @@ p{
     #descriptionproduit{
         padding-top: 20px;
         margin-top: 20px;
-        font-family: 'Playfair Display', serif;
-    p{
+        font-family: 'Karla', sans-serif;
+    #description{
         font-size: 1em;
         color: black;
     }    
     }
 }
-
+@media screen and (min-width: 600px){
+.button-add-cart{
+    margin-right: 80px;
+    padding-right: 50px;
+}
+}
 
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
 .containerPagePanier{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Karla', sans-serif;
+    th{
+        text-transform: uppercase;
+    }
+    .table-style{
+        background-color: #EEECD6;
+    }
+}
+.paragraphe-panier{
+    text-align: center;
+font-family: 'Karla', sans-serif;;
 }
 #container-panier2{
     font-size: 1.5em;
@@ -324,7 +355,8 @@ p{
 	height: 100px;
 }
 #basket-content{
-    font-family: 'EB Garamond', serif;
+    
+    font-family: 'Karla', sans-serif;
     font-weight: bold; 
     font-size: 1.2em; 
 }
@@ -334,17 +366,17 @@ p{
     font-size: 1.3em;
 }
 #btnorder{
-        font-family: 'Playfair Display', serif;
-        display: block;
-        margin: 5% auto;
-        font-size: 1.2em;
-        height: 54px;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        text-decoration: none;
+    font-family: 'Karla', sans-serif;
+    display: block;
+    margin: 5% auto;
+    height: 54px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-decoration: none;
 }
 
 .total-Panier{
+    color: #425264;
     font-weight: bold;
 }
  .pagePanier{
@@ -352,7 +384,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Karla', sans-serif;
     h2{
         text-align: center;
         margin: 5px;
@@ -396,7 +428,7 @@ p{
 
 // formulaire
 #formulaire{
-font-family: 'Playfair Display', serif;
+font-family: 'Karla', sans-serif;
 display: none;
 width: 80vw;
 height: auto;
@@ -414,8 +446,7 @@ h3 {
 
 }
 #btnsend{
-    color: #fff;
-    border-color: #17a2b8;
+    color: black;
 }
 }
 #myform [type="text"]{
@@ -431,24 +462,27 @@ h3 {
     }
 }
 /**************************************************************************************/
-/**********************************RESPONSIVE PAGE PANIER******************************/
+/**********************************PAGE CONFIRMATION******************************/
 /**************************************************************************************/
-
+.paragraphe-confirmation{
+    font-family: 'Karla', sans-serif;
+    text-align: center; 
+     
+}
 
  
 /**********************************PAGE A PROPOS******************************/
 .title-camera-apropos{
     padding-bottom: 60px;
     margin-bottom: 60px;
+    font-family: 'Karla', sans-serif;
     h2{
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
-            margin: 2% auto;
-            color: black;
-            text-shadow: 3px 3px 3px $clrbckhd;
+        font-size: 2em;
+        margin: 2% auto;
+        color: black;
+        text-shadow: 3px 3px 3px $clrbckhd;
     }
     p{
-        font-family: 'Playfair Display', serif;
         text-align: center;
         font-size: 1.3em;
     }

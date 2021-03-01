@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A propos de nous</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">   
     <link rel="stylesheet" href="sass/style.css">
@@ -15,13 +15,20 @@
     <!--Header avec panier-->
     <header>
         <a class="backindex" href="index.html">
-            <i class="fas fa-shopping-cart"></i>
-            <h1>Orinoco</h1>
+            <img src="images/oricameras-logo.jpg" alt="">
         </a>
-        <a class="monpanier" href="panier.html">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Mon panier</p>
-        </a> 
+        <nav class="navbar">
+            <ul class="list-inline">
+            <li class="list-inline-item mail-contact">
+                <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
+            </li>
+            <li class="list-inline-item panier-contents">
+                <a href="panier.html">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>    
+            </li>
+            </ul> 
+        </nav>   
     </header>
     <section class="title-camera-apropos">
         <h2 class="text-center">Bienvenue sur Oricaméras</h2>

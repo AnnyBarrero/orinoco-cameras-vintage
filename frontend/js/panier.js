@@ -4,6 +4,7 @@ const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
 
 
 
+
 function deleteCamera(i) {
     if (panier[i].camQuantite > 1) {
         panier[i].camQuantite--;
@@ -59,9 +60,9 @@ function APIdisplay() {
         localStorage.removeItem("total");
     } 
     else {
-        //prixTotal
         let priceProduct = 0;
-        for (let i=0; i < panierSettings.length; i++){ //boucle qui ajoute le prix total des produits
+        for (let i=0; i < panierSettings.length; i++){ 
+            //boucle qui ajoute le prix total des produits
             priceProduct += (panierSettings[i].totalPrice);
         }
         localStorage.setItem("total", priceProduct);
@@ -83,7 +84,7 @@ function APIdisplay() {
  /*function deleteBasket() {
     let divButtonClear = document.getElementById('button-clear-basket');
     let buttonClearBasket = document.createElement("button");
-
+    
     divButtonClear.appendChild(buttonClearBasket);
     buttonClearBasket.classList.add("btn", "btn-info", "block-right");
     buttonClearBasket.textContent = "Vider le panier";
@@ -94,12 +95,16 @@ function APIdisplay() {
         while (sectionBasket.firstChild) {
             sectionBasket.removeChild(sectionBasket.firstChild);
         }
+        if(panier == null || (panier.length ==0)){
+            buttonClearBasket.style.display = "none";
+        }
+        
     })
 } */
 
 //deleteBasket();
 
-//FORMULAIRE DE CONTACT
+//////   FORMULAIRE DE CONTACT   /////
 function affichageProduitPanier() {
 
     let formItems = localStorage.getItem("keyPanier");
@@ -139,18 +144,18 @@ function validation(){
     var text;
     error_message.style.padding = "10px";
 
-    if(firstname.length <2 || firstname.length>30){
+    if (/[0-9]/.test(firstname) || /[§!@#$%^&*().?":{}|<>]/.test(firstname) || !firstname){
         text = "Merci d'entrer un prénom valide";
         error_message.innerHTML = text;
         return false;
     }   
-    if(lastname.length <2 || lastname.length>30){
+    if(/[0-9]/.test(lastname) || /[§!@#$%^&*().?":{}|<>]/.test(lastname) || !lastname){
         text = "Merci d'entrer un nom valide";
         error_message.innerHTML = text;
         return false;
     }
     if(address.length <5 || address.length>250){
-        text = "Merci d'entrer une adresse valide";
+        text = "Merci d'entrer une adresse postal valide";
         error_message.innerHTML = text;
         return false;
     }
@@ -179,6 +184,7 @@ form.addEventListener('submit', function(e) {
         contactForm["address"] = address.value;
         contactForm["city"] = city.value;
         contactForm["email"] = email.value;
+
         localStorage.setItem("contact", JSON.stringify(contactForm));
         saveProducts = JSON.parse(saveProducts);
         saveProducts = saveProducts.map(save =>{
