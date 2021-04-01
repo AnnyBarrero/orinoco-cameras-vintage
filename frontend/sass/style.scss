@@ -1,12 +1,8 @@
 @import "font";
 
 $clrbckhd: #DDC3C4; /*couleur background header et footer*/
-$clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
 $clrborderpanier: #d3d3d3; /*couleur bordures panier*/
-$clrprimaire: rgb(73, 170, 63); /*vert bouton et background récap commande*/
 $clrbckg: white; /*background et couleur blanche*/
-$clrimportant: rgb(200, 17, 128); /*messages important*/
-$clrbutton: rgb(99, 52, 78);
 $clrtitles: #17A2B8; /*pour le titres et prix*/
 $clrfontAndicons: #4D647E;
 a{color: black; text-decoration: none;}
@@ -35,9 +31,12 @@ a:visited {text-decoration: none;}
     -webkit-text-fill-color:transparent;
     -webkit-background-clip:text;
 }
+
+/*******************************************************************************/   
+/**************************TOUTES LES PAGES************************************/
+/*****************************************************************************/ 
 /*HEADER ET FOOTER*/
 html {
-    
     font-family: 'Karla', sans-serif;
     position: relative;
     min-height: 100%;
@@ -49,28 +48,36 @@ header{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    
+    font-weight: 700;
     background-color: $clrbckhd;
     color: black;
     font-family: 'Karla', sans-serif;
-    
-    }  
-    .navbar{
-        font-weight: 700;
-        color: black;
-        ul{
-         list-style: none;  
-        
-        .fa-shopping-cart{
-            font-size: 1.2em;
-            // @include degradeOrinoco;
-        } 
-        
+    .mail-contact{
+        padding-right: 30px;
     }
+    .contents{
+    position: relative;
+    text-align: center;
+    .fa-shopping-cart{
+    color: degradeOrinoco;
+    font-size: 1.5em;
     }  
-/*********************************************************************/   
+    #cart-qte{
+    position: absolute;
+    top: 30%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: #AA6AB1;
+    font-size: 1.1em;
+    font-weight: bolder;
+    }
+    }
+    
+    .backindex{
+        width: 200px;
+    }
+}     
 /**************************FOOTER************************************/
-/*******************************************************************/ 
 .fin-page{
     font-family: 'Karla', sans-serif;
     margin-top: 50px;
@@ -92,8 +99,7 @@ header{
         padding-top: 15px
     }
     .footer-reseaux ul{
-    display: flex;
-    justify-content: flex-end;
+    display: flex;;
     align-items: center;
     height: 100%;
     list-style: none;
@@ -127,13 +133,14 @@ footer{
     font-weight: 700;
     font-family: 'Karla', sans-serif; 
     text-align: center; 
+    position: relative;
 }
 
 
 
 
 /**************************************************************************************/
-/**********************************CARD HOME PAGE CAMERAS AFFICHAGE****************************/
+/*************************************PAGE ACCUEIL************************************/
 /**************************************************************************************/
 
 /*CAROUSEL/HOME PAGE, AFFICHAGE*/
@@ -141,24 +148,20 @@ footer{
     padding-top: 25px;
     font-family: 'Karla', sans-serif;
 }
-    .title-homepage{
+.title-homepage{
         color: #4E6172; 
         margin-top: 10%;
         font-size: 2em;
         line-height: 35px;
         font-weight: 800;
-    }
-    .paragraphe-homepage{
+}
+.paragraphe-homepage{
         font-weight: 500;
         font-size: 1.3em;
-    }
-
-
-
+}
 #carouselIndex{
     margin: 0 auto;
 }
-
 .all-buttons{
 border: 2px solid #BEAF8C;
 padding: 10px 15px;
@@ -185,26 +188,33 @@ color: black;
     flex-wrap: wrap;
     justify-content: space-around;
 }   
-    .prix-coleurs, .name-couleurs {
-        font-weight: bolder;
-        color: #425264;
-    }
-
-    .description-lorem{
-        color: black;
-        font-weight: 800;
-    }
-
-
+.name-couleurs{
+    font-size: 1.3em;
+    font-weight: 900;
+    color: #425264;
+}
+.prix-coleurs{
+    font-size: 1.1em;
+    padding-top: 15px;
+    font-weight: 900;
+    color: black;
+}
+.description-lorem{
+    color: black;
+    font-weight: 800;
+}
 .card-header{
     display: flex;
     justify-content: space-around;
 }
+.shadow-page-accueil{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+    border-radius: .25rem!important;
+}
 
 /**************************************************************************************/
-/**********************************RESPONSIVE HEADER, FOOTER, MON PANIER, TITLE ORICAMERAS****************************/
+/**********************************RESPONSIVE HEADER, FOOTER, PAGE ACCUEIL****************************/
 /**************************************************************************************/
-
 @media screen and (min-width: 700px){
    
     header .navbar{
@@ -217,8 +227,6 @@ color: black;
    
 }
 
-
-
 @media screen and (max-width: 451px){
     .mail-contact{
         display: none;
@@ -228,7 +236,7 @@ color: black;
 
 
 /**************************************************************************************/
-/********************************** PRODUIT*********************************************/
+/**********************************PAGE PRODUIT*********************************************/
 /**************************************************************************************/
 .paragraphe-produit{
     text-align: center;
@@ -250,10 +258,10 @@ color: black;
 .container-produit-camera{
     padding-bottom: 60px;
     margin-bottom: 40px;
-
-   
     #description{
+        color: black;
         font-weight: 500;
+        font-size: 1.2em;
     }
     label{
         font-weight: 600;
@@ -261,53 +269,16 @@ color: black;
     .lentilles-choix{
         font-weight: 600;
     }
-    
 }
-
 #descriptionproduit{
     font-family: 'Karla', sans-serif;
     padding-top: 50px;
-    margin-top: 50px;
-    #description{
-    font-size: 1.2em;
-    color: black;
-    }    
+    margin-top: 50px; 
 }
-.cam-options{
-    line-height: 2.3em;
-}
-
-
-#container-form{
-    margin-top: 30px;
-    margin-right: 50px;
-    margin-left: 50px;
-    margin-bottom: 50px;
-    border: $clrbckhd 1px solid; 
-}
-
-.articlePanier{
-    display: flex;
-    flex-direction: column;
-}
-
-#total-price{
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #425264;
-}
-
-#container-button{
-    text-align: center; 
-    margin-bottom: 50px;
-}
-
 
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PRODUIT*****************************/
 /**************************************************************************************/
-
-
 @media screen and (max-width: 700px){
     #container{
         border: none;
@@ -335,6 +306,10 @@ color: black;
 /**************************************************************************************/
 .containerPagePanier{
     font-family: 'Karla', sans-serif;
+    width: 80vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 3%;
     th{
         text-transform: uppercase;
     }
@@ -344,23 +319,18 @@ color: black;
 }
 .paragraphe-panier{
     text-align: center;
-font-family: 'Karla', sans-serif;;
-}
-#container-panier2{
-    font-size: 1.5em;
-    margin: 0 auto;
+    font-family: 'Karla', sans-serif;;
 }
 .tailleImage{
     width: 100px;
-	height: 100px;
+    border-radius: 5px;
+    height: auto;
 }
 #basket-content{
-    
     font-family: 'Karla', sans-serif;
     font-weight: bold; 
     font-size: 1.2em; 
 }
-
 .no-products{
     margin: auto;
     font-size: 1.3em;
@@ -379,73 +349,29 @@ font-family: 'Karla', sans-serif;;
     color: #425264;
     font-weight: bold;
 }
- .pagePanier{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Karla', sans-serif;
-    h2{
-        text-align: center;
-        margin: 5px;
-        font-weight: bold;
-    }
- }
- .confirm-paragraphe{
-    border: grey 1px solid;
-    border-radius: 10px;
-    margin-top: 50px;
-    margin-right: 100px;
-    margin-left: 100px;
-    padding: 10px;
- }
-
-
-.ulDisposition{
-   display: flex;
-   list-style: none;
-   margin: 20px 0px;
-   border: 2px solid #6C757D;
-   background: #00000008;
-   border-radius: 5px;
+#total-price{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #425264;
 }
-.ulDisposition{
-    .liDisp{ margin-right: 40px;
-   padding-left: 10px;
-    }
-    
-}
-.liDisp ul{
-   list-style: none;
-   margin: 10px 5px;
-   padding: 0;
-   text-align: center;
-}
-.deleteBtn{
-   border-radius: 5px;
-   border: 2px solid #6C757D;
-}
-
-// formulaire
+//******* FORMULAIRE*******//
 #formulaire{
 font-family: 'Karla', sans-serif;
 display: none;
 width: 80vw;
 height: auto;
-box-shadow: black 1px 1px 15px;
 margin: 2% auto;
 padding: 3%;
-background: rgb(255, 255, 255);
-border-radius: 5px;
+line-height: 6px;
 h3 {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
     text-shadow: black 1px 1px 3px;
     padding: 2%;
-
 }
 #btnsend{
+    margin-top: 15px;
     color: black;
 }
 }
@@ -454,23 +380,19 @@ h3 {
     border-width: 1px;
     border-style: solid;
     border-color: rgb(224, 224, 224);
-    border-image: initial;
     padding: 10px;
-    .input_field {
-        margin-bottom: 10px;
-        box-sizing: inherit;
-    }
 }
+.input_field{
+    line-height: 2em;
+}
+
 /**************************************************************************************/
 /**********************************PAGE CONFIRMATION******************************/
 /**************************************************************************************/
 .paragraphe-confirmation{
     font-family: 'Karla', sans-serif;
     text-align: center; 
-     
 }
-
- 
 /**********************************PAGE A PROPOS******************************/
 .title-camera-apropos{
     padding-bottom: 60px;

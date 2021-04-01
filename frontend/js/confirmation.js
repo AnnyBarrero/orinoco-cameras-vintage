@@ -1,7 +1,15 @@
+///// ///// ///// ///// PAGE CONFIRMATION ////// ///// ///// /////
+let confirmationCommande = (sessionStorage.getItem("orderId"));
+console.log(confirmationCommande);
+let totalPrice = localStorage.getItem("totalPrice");
+console.log(totalPrice)
+affichageConfirmOrder();
 /* Affichage prix total + id commande */
-document.getElementById("validation").innerHTML += ` <h2>pour votre commande d'un montant de: ${localStorage.getItem(
-    "total"
-  )}€ </h2><p>Votre identifiant de commande est le n° ${localStorage.getItem("camId")}</p>`;
-
-  /* Effacement local et session storage */
+function affichageConfirmOrder() {
+  const confirmOrder = document.getElementById('validation');
+   confirmOrder.innerText = ` Merci de votre commande n°: ${confirmationCommande}.
+   Le prix total de votre commande est de : ${totalPrice}€.`;
+}
+// supression du localStorage, SessionStorage    
 localStorage.clear();
+sessionStorage.clear();

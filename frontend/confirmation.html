@@ -13,17 +13,18 @@
     <body>
         <header>
                 <a class="backindex" href="index.html">
-                    <img src="images/oricameras-logo.jpg" alt="">
+                    <img src="images/logoOrinoco.png" alt="">
                 </a>
                 <nav class="navbar">
                     <ul class="list-inline">
                     <li class="list-inline-item mail-contact">
                         <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
                     </li>
-                    <li class="list-inline-item panier-contents">
+                    <li class="list-inline-item panier-contents contents">
                         <a href="panier.html">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>    
+                        <i class="fas fa-shopping-cart"></i>
+                        <div id="cart-qte"> </div>
+                        </a>
                     </li>
                     </ul> 
                 </nav>   
@@ -34,12 +35,15 @@
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-12 paragraphe-confirmation">
                         <h2 class="title-homepage">ORICAMERAS</h2>
-                        <div id="validation"></div>
+                        <div id="validation">
+                            <p id="orderId"> </p>
+                            <p id="total-price"> </p>
+                        </div>
                         <p class="paragraphe-homepage">Orinoco vous remercie pour votre commande ! <br>
                         A bientôt</p>
 
                         <a href="./index.html">
-                        <button class="btn-accueil all-buttons">Retour à la page d'accueil</button>
+                        <button class="btn-accueil all-buttons" id="btn-confirmation">Retour à la page d'accueil</button>
                         </a>
                     </div>
                 </div>
@@ -85,8 +89,6 @@
                        </div>
                 </div>
             </footer>
-            
-            
             <script src="./js/confirmation.js"></script>
 </body>
 </html>

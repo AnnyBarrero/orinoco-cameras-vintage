@@ -1,198 +1,145 @@
-let containerPanier = document.getElementById("basket-content");
-
 const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
+//////Création de l'objet contact contenant les données du formulaire qui va être envoyé au serveur
 
-
-
-
+///////////Supression des caméras une par une/////////////
 function deleteCamera(i) {
     if (panier[i].camQuantite > 1) {
         panier[i].camQuantite--;
     } else {
         panier.splice(i, 1);
+
     }
     localStorage.setItem('keyPanier', JSON.stringify(panier))
     window.location.reload();
 }
-
+//////////SUPPRESSION total du panier//////////
+function removeCameras(){
+    localStorage.removeItem('keyPanier');
+    window.location.reload();
+    //let totalPrice = document.getElementById('total-price');
+    //totalPrice.textContent = "Prix total : 0 €";
+}
 //Création HTML du panier à partir des données des articles choisis
-function displayCart() {
-    let panier = localStorage.getItem("keyPanier");
-    panier = JSON.parse(panier);
-    var total = document.querySelector("#total-price");
+(function() {
+    let panier = JSON.parse(localStorage.getItem("keyPanier"));
+    var btnOrder = document.getElementById("btnorder");
+    const total = document.getElementById("total-price");
 
-    for (let i = 0; i < panier.length; i++) {
-        if (panier != null) {
-            containerPanier.innerHTML +=
-            `
-            <tr>
+    if (panier && panier.length > 0) {
+         for (let i = 0; i < panier.length; i++) {
+            document.getElementById("basket-content").innerHTML +=
+            `<tr>
             <td><img class="tailleImage" src=${panier[i].camImage} alt="" /></td>
             <td>${panier[i].camName}</td>
             <td>${panier[i].camPrice}</td>
             <td>${panier[i].camQuantite}</td>
             <td><a onclick="return deleteCamera(${i})"> <i class="fas fa-trash-alt"></i></a></td>
             <td>${(panier[i].camQuantite * panier[i].camPrice)},00€</td>
-            </tr>
-            `
+            </tr>`;
         }
-    }
-    APIdisplay();
-    total.innerHTML = ''
-    var totalProduits = localStorage.getItem("total");
-    total.innerHTML +=`${totalProduits},00€`;
-}
-displayCart();
-
-function APIdisplay() {
-    var btnOrder = document.querySelector("#btnorder");
-    var panierSettings = localStorage.getItem("keyPanier");
-    panierSettings = JSON.parse(panierSettings);
-
-    //si il n'y a pas de produit dans le panier
-    if(panierSettings == null || (panierSettings.length ==0)){
-        let nulCart = document.querySelector(".no-products")
-        nulCart.innerHTML +=
-            `
-            <p>Votre panier est vide...</p>
-            <p><a href="./index.html">Retour à la page d'accueil</a></p>
-            `
-        btnOrder.style.display = "none";
-        localStorage.removeItem("total");
-    } 
-    else {
-        let priceProduct = 0;
-        for (let i=0; i < panierSettings.length; i++){ 
-            //boucle qui ajoute le prix total des produits
-            priceProduct += (panierSettings[i].totalPrice);
+        // insert clear all from basket
+        document.getElementById("button-clear-basket").innerHTML = `<button class="btn all-buttons" onclick="return removeCameras();">Vider le panier</button>`;
+        // il sert a rien -> utiliser reduce avec keyPanier
+        const compteurPanierPrixTotal = () =>{
+        let arrayCompteurPanier =[];
+        let arrayPrixTotal =[];
+        for (const cameraDansLePanier of panier) {
+            let camQte = cameraDansLePanier.camQuantite;
+            arrayCompteurPanier.push(camQte);
+            let prix = cameraDansLePanier.camPrice * camQte;
+            arrayPrixTotal.push(prix);}
+            if (arrayCompteurPanier.length === 0 ) {
+                location.assign('panier.html');
+            }else {
+            let compteurPanier = arrayCompteurPanier.reduce((accumulater, valeurCourante)=> accumulater+ valeurCourante);
+            let itemInCart = document.getElementById("cart-qte"); 
+            itemInCart.innerHTML=` (${compteurPanier}) `;  
         }
-        localStorage.setItem("total", priceProduct);
-        //garder les produits si amount > 0 et supprimer le reste
-        panierSettings = panierSettings.filter(val => {
-            return (val.amount > 0);
-        });
-        localStorage.setItem("keyPanier", JSON.stringify(panier));
-    }
-    //au clic sur le bouton formualaire
-    btnOrder.addEventListener('click', function() {
-        let displayForm = document.querySelector("#formulaire");
-        displayForm.style.display = "block";
-    });  
-    
-}
-
-//////////SUPPRESSION DES ARTICLES 
- /*function deleteBasket() {
-    let divButtonClear = document.getElementById('button-clear-basket');
-    let buttonClearBasket = document.createElement("button");
-    
-    divButtonClear.appendChild(buttonClearBasket);
-    buttonClearBasket.classList.add("btn", "btn-info", "block-right");
-    buttonClearBasket.textContent = "Vider le panier";
-
-    buttonClearBasket.addEventListener('click', function () {
-        localStorage.removeItem('keyPanier');
-        let sectionBasket = document.getElementById('basket-content');
-        while (sectionBasket.firstChild) {
-            sectionBasket.removeChild(sectionBasket.firstChild);
-        }
-        if(panier == null || (panier.length ==0)){
-            buttonClearBasket.style.display = "none";
-        }
+        let prixTotal = arrayPrixTotal.reduce((accumulater, valeurCourante)=> accumulater+ valeurCourante);
         
-    })
-} */
+        total.innerHTML += `Total panier:${prixTotal}€`;
+        localStorage.setItem("totalPrice", prixTotal);
 
-//deleteBasket();
+        }
+        compteurPanierPrixTotal()
+        // send form
+        btnOrder.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('titi');
+            formulaire.style.display = "block";
+            sendForm();
+        });
+    } else {
+        total.innerHTML =`Votre panier est vide </br>
+                          <a href="./index.html">  Retour à la page d'accueil </a>`;
+        btnOrder.style.display = "none";
+    }
+})
+();
 
 //////   FORMULAIRE DE CONTACT   /////
-function affichageProduitPanier() {
-
-    let formItems = localStorage.getItem("keyPanier");
-    formItems = JSON.parse(formItems);
-    let productsContainer = document.querySelector("recapCommande");
-
-    if(formItems && productsContainer){
-        productsContainer.innerHTML = '';
-        formItems.forEach(item => {
-            productsContainer.innerHTML +=
-            `
-            <div class="form_product_container">
-                <div class="form_product_name">
-                    <p>${item.camName}</p>
-                </div>
-                <div class="form_product_quantity">
-                    <p>Quantité: ${item.camQuantite}</p>
-                </div>
-                <div class="form_product_totalprice">
-                    <p class="total_produit">Total:${item.camQuantite*item.camPrice},00€</p>
-                </div>
-            </div>
-            `
-        });
-    }
-}
-affichageProduitPanier();
-
-
-function validation(){
-    var lastname = document.getElementById("lastname").value;
-    var firstname = document.getElementById("firstname").value;
+function sendForm(){
+    document.getElementById('btnsend').addEventListener('click', function(e) {
+        e.preventDefault();
+        // il faut récupérer que les ID qui sont dans le panier
+        const products = [];
+    let contact = {};
+    let formIsInvalid = "";
+    var lastName = document.getElementById("lastname").value;
+    var firstName = document.getElementById("firstname").value;
     var city = document.getElementById("city").value;
     var address = document.getElementById("address").value;
     var email = document.getElementById("email").value;
     var error_message = document.getElementById("error_message");
-    var text;
+    
     error_message.style.padding = "10px";
+    if (/[0-9]/.test(firstName) || /[§!@#$%^&*().?":{}|<>]/.test(firstName) || !firstName)
+      formIsInvalid += "Votre prénom est invalide \n";
+    else if (/[0-9]/.test(lastName) || /[§!@#$%^&*().?":{}|<>]/.test(lastName) || !lastName)
+      formIsInvalid += "Votre nom de famille est invalide \n";
+    else if (!address)
+      formIsInvalid += "Votre adresse est invalide \n";
+    else if (/[0-9]/.test(city) || !city)
+      formIsInvalid += "Votre ville est invalide \n";
+    else if (!/@/.test(email) || !email)
+      formIsInvalid += "Votre mail est invalide \n";
+    
+    if (formIsInvalid) {
+        console.log('toto');
+        error_message.innerHTML = formIsInvalid;
+        return;
+    }
+      //alert("Erreur : \n" + formIsInvalid);
+    else {
+        contact = {
+            lastName: lastName,
+            firstName: firstName,
+            address: address,
+            city: city,
+            email: email,
+        };
 
-    if (/[0-9]/.test(firstname) || /[§!@#$%^&*().?":{}|<>]/.test(firstname) || !firstname){
-        text = "Merci d'entrer un prénom valide";
-        error_message.innerHTML = text;
-        return false;
-    }   
-    if(/[0-9]/.test(lastname) || /[§!@#$%^&*().?":{}|<>]/.test(lastname) || !lastname){
-        text = "Merci d'entrer un nom valide";
-        error_message.innerHTML = text;
-        return false;
+        //Requête POST pour envoyer l'objet Contact et le tableau products à l'API
+        fetch("http://localhost:3000/api/cameras/order", { 
+            method: "post", 
+            headers: { "Content-Type": "application/json" }, 
+            body: JSON.stringify({ contact, products }) 
+        }).then(function (response) {
+            /* Si connection ok ajout orderId au local storage */
+            if (response.ok) {
+            response.json().then(function(responseData) {
+              sessionStorage.setItem("orderId", responseData.orderId);
+            });
+            window.location.href = "confirmation.html"
+            } else {
+                Promise.reject(response.status);
+            }
+        }).catch(function (error) {
+            console.log(error);
+            alert("Un problème est survenu, merci de réessayer plus tard");
+        });
+    
     }
-    if(address.length <5 || address.length>250){
-        text = "Merci d'entrer une adresse postal valide";
-        error_message.innerHTML = text;
-        return false;
-    }
-    if(city.length <2 || city.length>70){
-        text = "Merci d'entrer une ville valide";
-        error_message.innerHTML = text;
-        return false;
-    }
-    if(email.indexOf("@") == -1 || email.length <5 || email.indexOf(".") ==-1 || email.length >250){
-        text = "Merci d'entrer une adresse email valide";
-        error_message.innerHTML = text;
-        return false;
-    }
-    return true;
+    });
+
 }
-
-var form = document.querySelector('#myform');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault() //bloc le comportement du formulaire
-    if(validation() == true){
-        var contactForm = {};
-        var saveProducts = localStorage.getItem("keyPanier");
-        contactForm["firstName"] = firstname.value;
-        contactForm["lastName"] = lastname.value;
-        contactForm["address"] = address.value;
-        contactForm["city"] = city.value;
-        contactForm["email"] = email.value;
-
-        localStorage.setItem("contact", JSON.stringify(contactForm));
-        saveProducts = JSON.parse(saveProducts);
-        saveProducts = saveProducts.map(save =>{
-            save = save.id/*+save.amount*/
-            return save;
-        })
-        localStorage.setItem("products", JSON.stringify(saveProducts));
-        document.location.href="./confirmation.html";
-    }
-});
-

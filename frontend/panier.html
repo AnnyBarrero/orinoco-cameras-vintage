@@ -20,18 +20,20 @@
          <!--Header avec panier-->
         <header>
           <a class="backindex" href="index.html">
-              <img src="images/oricameras-logo.jpg" alt="">
+              <img src="images/logoOrinoco.png" alt="Logo Orinoco">
           </a>
           <nav class="navbar">
               <ul class="list-inline">
-              <li class="list-inline-item mail-contact">
+                <li class="list-inline-item mail-contact">
                   <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
-              </li>
-              <li class="list-inline-item panier-contents">
-                  <a href="panier.html">
-                      <i class="fas fa-shopping-cart"></i>
-                  </a>    
-              </li>
+                </li>
+             
+                <li class="list-inline-item panier-contents contents">
+                    <a href="panier.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div id="cart-qte"> </div>
+                    </a>
+                </li>
               </ul> 
           </nav>   
         </header>
@@ -43,56 +45,44 @@
           </div> 
           </div>
         <!--Nom de la catégorie: PANIER-->
-        <section class="container containerPagePanier">
-
-          <div class="border-details border-info rounded shadow-lg my-5 p-4 text-center">
-            <table class="table .table-responsive{-sm|-md|-lg|-xl}">
-            <thead class="table-style">
-              <tr>
-                <th scope="col">Photo</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prix unitaire</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Supprimer</th>
-                <th scope="col">Prix Total</th>
-              </tr>
-            </thead>
-          
-            
-             <!-- Contenu du panier -->
-            <tbody id='basket-content'>
-              <!--Complèter chaque élément ajouté au panier avec le JS-->
-            </tbody>
-            </table>
-          
-            <div class="d-flex flex-column align-items-center">
-              <p class="total-Panier">Total Panier: </p>
-              <p id="total-price"><!-- Prix total de la commande  à compléter avec le JS--></p>
-            </div>
-            <!-- Prix et bouton de vider le panier -->
-            <div class="d-flex flex-column align-items-end">
-                
-              <!-- Prix total de la commande  à compléter avec le JS-->
-                <div class="no-products">
-                <!-- S'il y pas des produits dans le panier-->
-                </div>
-                <div id="button-clear-basket">
-              <!-- Bouton : vider le panier à compléter avec le JS-->
-                </div>
-              <!-- Bouton : VALIDER COMMANDE compléter avec le JS-->
-                <button id="btnorder" class="btn btn-xs all-buttons">Passer la commande</button>
-            </div>
-          </div>
-          <!-- 
-          <div class="row ">
-            <div class="col-lg-10" id="container-button">
-            <button type="button" class="btn btn-info" id="validate" > Validez votre commande </button> 
-            </div>
-          </div> -->
+        <section class="container containerPagePanier shadow-lg">
+                <div class="border-details rounded  text-center table-responsive">
+                    <table class="table">
+                        <thead class="table-style">
+                        <tr>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix unitaire</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Supprimer</th>
+                            <th scope="col">Prix Total</th>
+                        </tr>
+                        </thead>
+                    <!-- Contenu du panier -->
+                        <tbody id='basket-content'>
+                        <!--Complèter chaque élément ajouté au panier avec le JS-->
+                        </tbody>
+                    </table>
+                    <div class="d-flex flex-column align-items-center">
+                        <p id="total-price"><!-- Prix total de la commande  à compléter avec le JS--></p>
+                    </div>
+                    <!-- Prix et bouton de vider le panier -->
+                    <div class="d-flex flex-column align-items-end">
+                    <!-- Prix total de la commande  à compléter avec le JS-->
+                        <div class="no-products">
+                        <!-- S'il y pas des produits dans le panier-->
+                        </div>
+                        <div id="button-clear-basket">
+                    <!-- Bouton : vider le panier à compléter avec le JS -->
+                        </div> 
+                    <!-- Bouton : VALIDER COMMANDE compléter avec le JS-->
+                        <button id="btnorder" class="btn btn-xs all-buttons">Passer la commande</button>
+                    </div>
+                </div>    
         </section>  
         
         <!--Formulaire à remplir après la confirmation de commande-->
-        <section id="formulaire">
+        <section id="formulaire" class="shadow-lg">
           <div id="recapCommande"></div>
           <form id="myform">
               <h3>Informations</h3>
@@ -112,7 +102,7 @@
                   <input type="text" placeholder="Mail*" id="email">
               </div>
               <button id="btnsend" type="submit" class="btn btn-xs all-buttons">Envoyer</button>
-              <div id="error_message"></div>
+              <div id="error_message" class="text-danger"></div>
           </form>
         </section>
             <!--FOOTER-->

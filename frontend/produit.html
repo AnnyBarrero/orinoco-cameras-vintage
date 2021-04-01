@@ -11,20 +11,21 @@
         <link rel="stylesheet" href="sass/style.css">
     </head>
     <body>
-        <!--Header avec panier-->
+    <!--Header avec panier-->
         <header>
             <a class="backindex" href="index.html">
-                <img src="images/oricameras-logo.jpg" alt="">
+                <img src="images/logoOrinoco.png" alt="Logo Orinoco">
             </a>
             <nav class="navbar">
                 <ul class="list-inline">
                 <li class="list-inline-item mail-contact">
                     <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
                 </li>
-                <li class="list-inline-item panier-contents">
+                <li class="list-inline-item panier-contents contents">
                     <a href="panier.html">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>    
+                    <i class="fas fa-shopping-cart"></i>
+                    <div id="cart-qte"> </div>
+                    </a>
                 </li>
                 </ul> 
             </nav>   
@@ -38,7 +39,7 @@
         </div> 
         </div>
         <!--Produits-->
-        <div class="container container-produit-camera">
+        <div class="container container-produit-camera shadow-lg rounded">
             <div id="descriptionproduit">
                 <!--Affichage de produit avec JS-->
             </div> 
@@ -89,5 +90,6 @@
             </div>
         </footer>
         <script src="/frontend/js/produit.js"></script>
+        <script src="js/global.js"></script>
     </body>
 </html>

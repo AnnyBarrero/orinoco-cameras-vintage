@@ -13,21 +13,22 @@
     <body>
         <!--Header avec panier-->
         <header>
-                <a class="backindex" href="index.html">
-                    <img src="images/oricameras-logo.jpg" alt="">
-                </a>
-                <nav class="navbar">
-                    <ul class="list-inline">
-                    <li class="list-inline-item mail-contact">
-                        <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
-                    </li>
-                    <li class="list-inline-item panier-contents">
-                        <a href="panier.html">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>    
-                    </li>
-                    </ul> 
-                </nav>   
+            <a class="backindex" href="index.html">
+                <img src="images/logoOrinoco.png" alt="Logo Orinoco">
+            </a>
+            <nav class="navbar">
+                <ul class="list-inline">
+                <li class="list-inline-item mail-contact">
+                    <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
+                </li>
+                <li class="list-inline-item panier-contents contents">
+                    <a href="panier.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div id="cart-qte"> </div>
+                    </a>
+                </li>
+                </ul> 
+            </nav>   
         </header>
         <!--Fin de Header avec panier-->
         <!--Ici commence le carousel avec la description de la HOMEPAGE-->
@@ -66,6 +67,7 @@
                 </div>
             </div>    
                 <!--Produits-->
+            
             <div id="produits">
                     <!--Affichage des produits a completer avec javascript-->
             </div>
@@ -76,7 +78,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                             <span class="titles-footer">Oricameras</span>
                         <ul class="avant-footer-list">
-                            <li>A propos de nous</li>
+                            <li> <a href="./apropos.html"> A propos de nous</a></li>
                             <li>Mentions légales</li>
                         </ul>
                     </div>
@@ -115,6 +117,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/accueil.js"asynch></script>
+        <script src="js/global.js"></script>
     
     </body>
 </html>

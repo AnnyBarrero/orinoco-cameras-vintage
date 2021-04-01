@@ -37,7 +37,6 @@ const appelDeApi = async function () {
         // Al'ecoute du btn ajout panier
         addCartBtn.addEventListener('click', (e) => {
             const article = setPanierValue(newCam);
-            
             if(typeof localStorage != "null"){
                 //on recupere la valeur dans le Web Storage
                 const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
@@ -61,10 +60,14 @@ const appelDeApi = async function () {
                     // ajouter dans le panier
                 }
                 if (newPanier) {
-                    localStorage.setItem("keyPanier", JSON.stringify(newPanier));
+                    localStorage.setItem("keyPanier", JSON.stringify(newPanier))
+                    
                 } else {
                     localStorage.setItem("keyPanier", JSON.stringify(panier));
+                    
                 }
+                alert("Votre caméra a bien été ajouté au panier")
+                location.reload();
             } 
         });
     
@@ -82,13 +85,13 @@ const appelDeApi = async function () {
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12  float-end text-center bg-transparent border-0">
             <div class="card-header border-0 bg-transparent">
-              <h2 class="card-title bg-transparent name-couleurs" id="titre">${newCam.name}</h2>
-              <p class="card-text bg-transparent prix-coleurs" id="prix"> ${newCam.price/100} €</p> 
+              <h2 class="card-title bg-transparent name-couleurs" id="titre">${newCam.name}</h2> 
             </div>
             <div class="card-body border-0">
               <p class="card-text border-0" id="description">
                     ${newCam.description}
                 </p> 
+
                 <label for="quantité">Quantité (<em> Dans la limite des cameras </em>) </label>
                 <select class="cameras disponibles" id="qte" name="quantité">
                 </select>
@@ -96,7 +99,7 @@ const appelDeApi = async function () {
                 <select name="lentilles disponibles" id="choixlentilles">
                 </select>
             </div>
-            
+            <p class="card-text bg-transparent prix-coleurs" id="prix"> ${newCam.price/100} €</p>
         </div>    
               
             `;
