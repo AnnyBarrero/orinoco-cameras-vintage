@@ -1,31 +1,31 @@
 ///////////////////PAGE ACCUEIL JS ////////////////////////////////////
-
 const camerasOrinoco = document.querySelector('#produits');
-
 //////////////////////Créer un appel AJAX//////////////////////////
 let requete = new XMLHttpRequest;
     requete.open('GET', 'http://localhost:3000/api/cameras');
     requete.responseType = 'json';
-    requete.send(); 
-    requete.onload = function () {
-    if (requete.readyState === XMLHttpRequest.DONE ) {
+requete.send(); 
+
+requete.onload = function () {
+    if (requete.readyState === XMLHttpRequest.DONE) {
         if(requete.status === 200 ||requete.status === 201){ 
             camerasArray = requete.response; 
-        /////J'affiche dynamiquement les cameras en utilisant la fonction///////
+            /////J'affiche dynamiquement les cameras en utilisant la fonction///////
             afficherCameras(camerasArray); 
-            }
-    } else {
+        }
+    } 
+    else {
         alert("Un probleme est survenu, merci de réesayer plus tard");
     }
 }
- 
-////////////////////////creation de la fonction pour afficher les cameras, une par une///////////////////////////////
+ ////////////////////////creation de la fonction pour afficher les cameras, une par une///////////////////////////////
 function afficherCameras(cams) {
-     cams.forEach(afficherCamera);
+    cams.forEach(afficherCamera);
 }
 
 function afficherCamera(camera){
     const cameraElement = document.createElement('div');
+
     cameraElement.setAttribute("class","col-lg-5 col-md-6 mb-4 shadow-lg shadow-page-accueil")
     cameraElement.innerHTML =
     `
@@ -46,5 +46,6 @@ function afficherCamera(camera){
     </a>    
     `;
     camerasOrinoco.appendChild(cameraElement);
-};
+}
+;
 
