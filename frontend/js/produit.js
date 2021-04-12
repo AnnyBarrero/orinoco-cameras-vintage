@@ -1,7 +1,7 @@
 const urlCameras = "http://localhost:3000/api/cameras/";
 const searchParams = new URLSearchParams(window.location.search);
 const itemId = searchParams.get("id");
-const urlApiId = urlCameras + "/"+itemId;
+const urlApiId = urlCameras + "/" + itemId;
 console.log(itemId);
 
 // connection avec les produits sur le serveur 
@@ -15,20 +15,20 @@ let addCartBtn = document.getElementById('btnAddCart');
  * @param {*} newCam 
  * return object
  */
-function setPanierValue (newCam) {
+function setPanierValue(newCam) {
     return {
-        camName : newCam.name, 
-        camPrice : newCam.price/100, 
-        camId : newCam._id, 
-        camImage : newCam.imageUrl,
-        camQuantite :parseInt( document.getElementById("qte").value),
-        get totalPrice (){
+        camName: newCam.name,
+        camPrice: newCam.price / 100,
+        camId: newCam._id,
+        camImage: newCam.imageUrl,
+        camQuantite: parseInt(document.getElementById("qte").value),
+        get totalPrice() {
             return this.camPrice * this.camQuantite;
         }
     };
 }
 
-const appelDeApi = async function () {
+const appelDeApi = async function() {
     let response = await fetch(urlApiId);
     if (response.ok) {
         const newCam = await response.json();
@@ -37,7 +37,7 @@ const appelDeApi = async function () {
         // Al'ecoute du btn ajout panier
         addCartBtn.addEventListener('click', (e) => {
             const article = setPanierValue(newCam);
-            if(typeof localStorage != "null"){
+            if (typeof localStorage != "null") {
                 //on recupere la valeur dans le Web Storage
                 const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
                 let newPanier;
@@ -61,25 +61,25 @@ const appelDeApi = async function () {
                 }
                 if (newPanier) {
                     localStorage.setItem("keyPanier", JSON.stringify(newPanier))
-                    
+
                 } else {
                     localStorage.setItem("keyPanier", JSON.stringify(panier));
-                    
+
                 }
                 alert("Votre caméra a bien été ajouté au panier")
                 location.reload();
-            } 
+            }
         });
-    
+
     }
 };
 
 
 //mise en place de l'HTML
-    function afficherUnItem(newCam) {
-        let cameraCart = document.createElement("div");
-        cameraCart.setAttribute("class","flex-row flex-wrap border-0 card")
-        cameraCart.innerHTML = `
+function afficherUnItem(newCam) {
+    let cameraCart = document.createElement("div");
+    cameraCart.setAttribute("class", "flex-row flex-wrap border-0 card")
+    cameraCart.innerHTML = `
         <div class=" col-lg-6 col-md-12  float-start card border-0">
             <img id="imageUrl" src="${newCam.imageUrl}" alt="">        
         </div>
@@ -103,29 +103,29 @@ const appelDeApi = async function () {
         </div>    
               
             `;
-            descriptionproduit.appendChild(cameraCart);
-            compteur();
-            choixlentilles(newCam);
-    };
+    descriptionproduit.appendChild(cameraCart);
+    compteur();
+    choixlentilles(newCam);
+};
 
-        //fonction pour la qty
-        function compteur() {
-            let optionQty = document.getElementById("qte");
-            for (let nbr = 1; nbr <= 10; nbr++) {
-                let newQty = document.createElement("option");
-                newQty.innerText += nbr;
-                optionQty.append(newQty);
-            }
-        };
-        //fonction pour afficher les options de couleurs.
-        function choixlentilles(newCam) {
-            let choixlentilles = document.getElementById("choixlentilles")
-            for (let i = 0; i < newCam.lenses.length; i++) {
-                let newchoixlentilles = document.createElement("option")
-                newchoixlentilles.innerText = newCam.lenses[i];
-                choixlentilles.append(newchoixlentilles);
-            }
-            
-        };
-        
-        appelDeApi();
+//fonction pour la qty
+function compteur() {
+    let optionQty = document.getElementById("qte");
+    for (let nbr = 1; nbr <= 10; nbr++) {
+        let newQty = document.createElement("option");
+        newQty.innerText += nbr;
+        optionQty.append(newQty);
+    }
+};
+//fonction pour afficher les options de couleurs.
+function choixlentilles(newCam) {
+    let choixlentilles = document.getElementById("choixlentilles")
+    for (let i = 0; i < newCam.lenses.length; i++) {
+        let newchoixlentilles = document.createElement("option")
+        newchoixlentilles.innerText = newCam.lenses[i];
+        choixlentilles.append(newchoixlentilles);
+    }
+
+};
+
+appelDeApi();

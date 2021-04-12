@@ -74,6 +74,12 @@ html {
   min-height: 100%;
 }
 
+.fa-instagram-square {
+  color: #BFAD75;
+  font-size: 3em;
+  background-color: #06101B;
+}
+
 header {
   top: 0;
   z-index: 9999;

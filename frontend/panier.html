@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -12,140 +13,144 @@
     <!--lien icons fontawesome-->
     <script src="https://kit.fontawesome.com/1ba3acfa04.js" crossorigin="anonymous"></script>
     <!--lien pour le fichier bootstrap-->
-    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-    <!--lien pour le fichier css-->  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--lien pour le fichier css-->
     <link rel="stylesheet" href="sass/style.css">
 </head>
-    <body>
-         <!--Header avec panier-->
-        <header>
-          <a class="backindex" href="index.html">
-              <img src="images/logoOrinoco.png" alt="Logo Orinoco">
-          </a>
-          <nav class="navbar">
-              <ul class="list-inline">
+
+<body>
+    <!--Header avec panier-->
+    <header>
+        <a class="backindex" href="index.html">
+            <img src="images/logoOrinoco.png" alt="Logo Orinoco">
+        </a>
+        <nav class="navbar">
+            <ul class="list-inline">
                 <li class="list-inline-item mail-contact">
-                  <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
+                    <a href="mailto:orinoco_cameras@gmail.com" title="email contact">CONTACT</a>
                 </li>
-             
+
                 <li class="list-inline-item panier-contents contents">
                     <a href="panier.html">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div id="cart-qte"> </div>
+                        <i class="fas fa-shopping-cart"></i>
+                        <div id="cart-qte"> </div>
                     </a>
                 </li>
-              </ul> 
-          </nav>   
-        </header>
-        <!--Fin de Header-->
-        <div class="container paragraphe-panier">
-          <div class="col-12 col-md-6 col-lg-12">
-              <h2 class="title-homepage">Oricaméras, votre panier...</h2>
-              <p class="paragraphe-homepage">Validation de votre commande</p>
-          </div> 
-          </div>
-        <!--Nom de la catégorie: PANIER-->
-        <section class="container containerPagePanier shadow-lg">
-                <div class="border-details rounded  text-center table-responsive">
-                    <table class="table">
-                        <thead class="table-style">
-                        <tr>
-                            <th scope="col">Photo</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Prix unitaire</th>
-                            <th scope="col">Quantité</th>
-                            <th scope="col">Supprimer</th>
-                            <th scope="col">Prix Total</th>
-                        </tr>
-                        </thead>
-                    <!-- Contenu du panier -->
-                        <tbody id='basket-content'>
-                        <!--Complèter chaque élément ajouté au panier avec le JS-->
-                        </tbody>
-                    </table>
-                    <div class="d-flex flex-column align-items-center">
-                        <p id="total-price"><!-- Prix total de la commande  à compléter avec le JS--></p>
-                    </div>
-                    <!-- Prix et bouton de vider le panier -->
-                    <div class="d-flex flex-column align-items-end">
+            </ul>
+        </nav>
+    </header>
+    <!--Fin de Header-->
+    <div class="container paragraphe-panier">
+        <div class="col-12 col-md-6 col-lg-12">
+            <h2 class="title-homepage">Oricaméras, votre panier...</h2>
+            <p class="paragraphe-homepage">Validation de votre commande</p>
+        </div>
+    </div>
+    <!--Nom de la catégorie: PANIER-->
+    <section class="container containerPagePanier shadow-lg">
+        <div class="border-details rounded  text-center table-responsive">
+            <table class="table">
+                <thead class="table-style">
+                    <tr>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Supprimer</th>
+                        <th scope="col">Prix Total</th>
+                    </tr>
+                </thead>
+                <!-- Contenu du panier -->
+                <tbody id='basket-content'>
+                    <!--Complèter chaque élément ajouté au panier avec le JS-->
+                </tbody>
+            </table>
+            <div class="d-flex flex-column align-items-center">
+                <p id="total-price">
                     <!-- Prix total de la commande  à compléter avec le JS-->
-                        <div class="no-products">
-                        <!-- S'il y pas des produits dans le panier-->
-                        </div>
-                        <div id="button-clear-basket">
+                </p>
+            </div>
+            <!-- Prix et bouton de vider le panier -->
+            <div class="d-flex flex-column align-items-end">
+                <!-- Prix total de la commande  à compléter avec le JS-->
+                <div class="no-products">
+                    <!-- S'il y pas des produits dans le panier-->
+                </div>
+                <div id="button-clear-basket">
                     <!-- Bouton : vider le panier à compléter avec le JS -->
-                        </div> 
-                    <!-- Bouton : VALIDER COMMANDE compléter avec le JS-->
-                        <button id="btnorder" class="btn btn-xs all-buttons">Passer la commande</button>
+                </div>
+                <!-- Bouton : VALIDER COMMANDE compléter avec le JS-->
+                <button id="btnorder" class="btn btn-xs all-buttons">Passer la commande</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Formulaire à remplir après la confirmation de commande-->
+    <section id="formulaire" class="shadow-lg">
+        <div id="recapCommande"></div>
+        <form id="myform">
+            <h3>Informations</h3>
+            <div class="input_field">
+                <input type="text" placeholder="Prénom*" id="firstname">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Nom*" id="lastname">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Adresse postal*" id="address">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Ville*" id="city">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="Mail*" id="email">
+            </div>
+            <button id="btnsend" type="submit" class="btn btn-xs all-buttons">Envoyer</button>
+            <div id="error_message" class="text-danger"></div>
+        </form>
+    </section>
+    <!--FOOTER-->
+    <div class="fin-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <span class="titles-footer">Oricameras</span>
+                    <ul class="avant-footer-list">
+                        <li>A propos de nous</li>
+                        <li>Mentions légales</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <span class="titles-footer retrouvez-nous">Retrouvez-nous</span>
+                    <ul class="avant-footer-list">
+                        <li>Nos réseaux sociaux</li>
+                    </ul>
+                    <div class="footer-reseaux col-lg-6">
+                        <ul>
+                            <li><i class="fab fa-facebook-square"></i></li>
+                            <li><i class="fab fa-twitter-square"></i></li>
+                        </ul>
                     </div>
-                </div>    
-        </section>  
-        
-        <!--Formulaire à remplir après la confirmation de commande-->
-        <section id="formulaire" class="shadow-lg">
-          <div id="recapCommande"></div>
-          <form id="myform">
-              <h3>Informations</h3>
-              <div class="input_field">
-                  <input type="text" placeholder="Prénom*" id="firstname">
-              </div>
-              <div class="input_field">
-                  <input type="text" placeholder="Nom*" id="lastname">
-              </div>
-              <div class="input_field">
-                  <input type="text" placeholder="Adresse postal*" id="address">
-              </div>
-              <div class="input_field">
-                  <input type="text" placeholder="Ville*" id="city">
-              </div>
-              <div class="input_field">
-                  <input type="text" placeholder="Mail*" id="email">
-              </div>
-              <button id="btnsend" type="submit" class="btn btn-xs all-buttons">Envoyer</button>
-              <div id="error_message" class="text-danger"></div>
-          </form>
-        </section>
-            <!--FOOTER-->
-            <div class="fin-page">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-4 col-md-6 col-sm-12">
-                              <span class="titles-footer">Oricameras</span>
-                          <ul class="avant-footer-list">
-                              <li>A propos de nous</li>
-                              <li>Mentions légales</li>
-                          </ul>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-12">
-                           <span class="titles-footer retrouvez-nous">Retrouvez-nous</span>
-                          <ul class="avant-footer-list">
-                              <li>Nos réseaux sociaux</li>
-                          </ul>
-                          <div class="footer-reseaux col-lg-6">
-                              <ul>
-                                  <li><i class="fab fa-facebook-square"></i></li>
-                                  <li><i class="fab fa-twitter-square"></i></li>
-                              </ul> 
-                          </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-12">
-                          <span class="titles-footer">Orinoco produits</span>
-                          <ul class="avant-footer-list">
-                              <li>Ours en peluche</li>
-                              <li>Meubles en chêne</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <footer class="footer">
-              <div class="container-fluid">
-                  <div class="col-12">
-                      <ul class="list-inline text-center">
-                          <li class="list-inline-item"><a>© 2021 Oricameras, caméras vintage.</a></li>
-                     </div>
-              </div>
-          </footer>
-          <script src="/frontend/js/panier.js"asynch></script>
-    </body>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <span class="titles-footer">Orinoco produits</span>
+                    <ul class="avant-footer-list">
+                        <li>Ours en peluche</li>
+                        <li>Meubles en chêne</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="col-12">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item"><a>© 2021 Oricameras, caméras vintage.</a></li>
+            </div>
+        </div>
+    </footer>
+    <script src="/frontend/js/panier.js" asynch></script>
+</body>
+
 </html>
