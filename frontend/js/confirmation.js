@@ -1,8 +1,6 @@
 ///// ///// ///// ///// PAGE CONFIRMATION ////// ///// ///// /////
 let confirmationCommande = (sessionStorage.getItem("orderId"));
-console.log(confirmationCommande);
 let totalPrice = localStorage.getItem("totalPrice");
-console.log(totalPrice)
 affichageConfirmOrder();
 /* Affichage prix total + id commande */
 function affichageConfirmOrder() {
