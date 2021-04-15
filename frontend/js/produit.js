@@ -2,11 +2,8 @@ const urlCameras = "http://localhost:3000/api/cameras/";
 const searchParams = new URLSearchParams(window.location.search);
 const itemId = searchParams.get("id");
 const urlApiId = urlCameras + "/" + itemId;
-console.log(itemId);
-
-// connection avec les produits sur le serveur 
+//Connection avec les produits sur le serveur 
 const descriptionproduit = document.getElementById('descriptionproduit');
-
 //Button add-to-cart
 let addCartBtn = document.getElementById('btnAddCart');
 
@@ -108,7 +105,7 @@ function afficherUnItem(newCam) {
     choixlentilles(newCam);
 };
 
-//fonction pour la qty
+//fonction pour la quantité
 function compteur() {
     let optionQty = document.getElementById("qte");
     for (let nbr = 1; nbr <= 10; nbr++) {

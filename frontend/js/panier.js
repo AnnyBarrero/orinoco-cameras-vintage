@@ -66,7 +66,6 @@ function removeCameras() {
         // send form
         btnOrder.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('titi');
             formulaire.style.display = "block";
             sendForm();
         });
@@ -106,7 +105,6 @@ function sendForm() {
             formIsInvalid += "Votre mail est invalide \n";
 
         if (formIsInvalid) {
-            console.log('toto');
             error_message.innerHTML = formIsInvalid;
             return;
         }
