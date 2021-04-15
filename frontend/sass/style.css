@@ -308,14 +308,14 @@ footer {
 
 .paragraphe-produit .title-homepage {
   margin-top: 10%;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 35px;
   font-weight: 700;
 }
 
 .paragraphe-produit .paragraphe-homepage {
   font-weight: 500;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .container-produit-camera {
@@ -366,13 +366,22 @@ footer {
     margin-right: 80px;
     padding-right: 50px;
   }
+  .paragraphe-produit .title-homepage {
+    font-size: 2em;
+  }
+  .paragraphe-produit .paragraphe-homepage {
+    font-size: 1.5em;
+  }
 }
 
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
-.containerPagePanier {
+.container {
   font-family: 'Karla', sans-serif;
+}
+
+.containerPagePanier {
   width: 80vw;
   height: auto;
   margin: 0 auto;
@@ -389,7 +398,6 @@ footer {
 
 .paragraphe-panier {
   text-align: center;
-  font-family: 'Karla', sans-serif;
 }
 
 .tailleImage {
@@ -399,7 +407,6 @@ footer {
 }
 
 #basket-content {
-  font-family: 'Karla', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -410,10 +417,8 @@ footer {
 }
 
 #btnorder {
-  font-family: 'Karla', sans-serif;
   display: block;
   margin: 5% auto;
-  height: 54px;
   font-weight: bold;
   letter-spacing: 0.05em;
   text-decoration: none;
@@ -431,7 +436,6 @@ footer {
 }
 
 #formulaire {
-  font-family: 'Karla', sans-serif;
   display: none;
   width: 80vw;
   height: auto;

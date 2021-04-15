@@ -244,13 +244,13 @@ color: black;
 
     .title-homepage{ 
         margin-top: 10%;
-        font-size: 2em;
+        font-size: 1.5em;
         line-height: 35px;
         font-weight: 700;
     }
     .paragraphe-homepage{
         font-weight: 500;
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
 }    
@@ -279,7 +279,7 @@ color: black;
 /**********************************RESPONSIVE PAGE PRODUIT*****************************/
 /**************************************************************************************/
 @media screen and (max-width: 700px){
-    #container{
+#container{
         border: none;
     }
    
@@ -291,20 +291,32 @@ color: black;
         font-size: 1em;
         color: black;
     }    
-    }
+}
+
 }
 @media screen and (min-width: 600px){
 .button-add-cart{
     margin-right: 80px;
     padding-right: 50px;
 }
+.paragraphe-produit{
+    .title-homepage{    
+    font-size: 2em;  
+    }  
+    .paragraphe-homepage{
+    font-size: 1.5em;
+    }
+}
 }
 
 /**************************************************************************************/
 /********************************** PAGE PANIER****************************************/
 /**************************************************************************************/
-.containerPagePanier{
+.container{
     font-family: 'Karla', sans-serif;
+
+}
+.containerPagePanier{
     width: 80vw;
     height: auto;
     margin: 0 auto;
@@ -318,7 +330,6 @@ color: black;
 }
 .paragraphe-panier{
     text-align: center;
-    font-family: 'Karla', sans-serif;;
 }
 .tailleImage{
     width: 100px;
@@ -326,7 +337,6 @@ color: black;
     height: auto;
 }
 #basket-content{
-    font-family: 'Karla', sans-serif;
     font-weight: bold; 
     font-size: 1.2em; 
 }
@@ -335,10 +345,8 @@ color: black;
     font-size: 1.3em;
 }
 #btnorder{
-    font-family: 'Karla', sans-serif;
     display: block;
     margin: 5% auto;
-    height: 54px;
     font-weight: bold;
     letter-spacing: 0.05em;
     text-decoration: none;
@@ -355,7 +363,6 @@ color: black;
 }
 //******* FORMULAIRE*******//
 #formulaire{
-font-family: 'Karla', sans-serif;
 display: none;
 width: 80vw;
 height: auto;
