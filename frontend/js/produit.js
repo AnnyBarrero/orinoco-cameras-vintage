@@ -1,3 +1,4 @@
+///// ///// ///// ///// PAGE PRODUIT ////// ///// ///// /////
 const urlCameras = "http://localhost:3000/api/cameras/";
 const searchParams = new URLSearchParams(window.location.search);
 const itemId = searchParams.get("id");

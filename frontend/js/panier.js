@@ -1,3 +1,4 @@
+///// ///// ///// ///// PAGE PANIER////// ///// ///// /////
 const panier = JSON.parse(localStorage.getItem("keyPanier")) || [];
 //////Création de l'objet contact contenant les données du formulaire qui va être envoyé au serveur
 
@@ -101,7 +102,7 @@ function sendForm() {
             formIsInvalid += "Votre adresse est invalide \n";
         else if (/[0-9]/.test(city) || !city)
             formIsInvalid += "Votre ville est invalide \n";
-        else if (!/@/.test(email) || !email)
+        else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) || !email)
             formIsInvalid += "Votre mail est invalide \n";
 
         if (formIsInvalid) {

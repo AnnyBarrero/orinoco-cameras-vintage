@@ -10,7 +10,7 @@ requete.onload = function () {
     if (requete.readyState === XMLHttpRequest.DONE) {
         if(requete.status === 200 ||requete.status === 201){ 
             camerasArray = requete.response; 
-            /////J'affiche dynamiquement les cameras en utilisant la fonction///////
+            /////J'affiche dynamiquement les cameras en utilisant la function///////
             afficherCameras(camerasArray); 
         }
     } 
